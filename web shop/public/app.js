@@ -1,3 +1,5 @@
+var items = []
+
 window.addEventListener("DOMContentLoaded", (evt) => {
   fetch("/api/items/all")
     .then((res) => {
@@ -15,8 +17,14 @@ window.addEventListener("DOMContentLoaded", (evt) => {
             <img class="product-img" src="./img/${element.img}"></img>
             <p class="product-price">$${element.price}</p>
             <p class="product-desc">${element.desc}</p>
+            <button onclick="buy(${element.id})">BUY!</button>
         </div>
         `;
       });
     });
 });
+
+const buy = (id) =>{
+    //not fully functional
+    alert(`You want to buy ${items[id-1].name}?`)
+}
