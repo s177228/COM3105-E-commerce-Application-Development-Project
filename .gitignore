@@ -1,2 +1,5 @@
 #ignore node modules (large file)
 node_modules
+
+#temp file on mac
+.DS_Store
