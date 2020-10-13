@@ -1,0 +1,2 @@
+#ignore node modules (large file)
+node_modules
