@@ -2,18 +2,32 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="./style.css">
     <title>Online shop</title>
 </head>
 
 <body>
-
     <nav>
         <h1 id="logo">Logo</h1>
         <button id="login-btn">Login</button>
     </nav>
+
+    <div id="login-interface">
+        Login to ...
+        <form id="login" action="">
+            <div class="form-group">
+                <label for="id">Account</label>
+                <input type="text" id="account">
+            </div>
+            <div class="form-group">
+                <label for="id">Password</label>
+                <input type="password" id="password">
+            </div>
+            <input type="submit" id="submit">
+        </form>
+    </div>
 
     <main>
         <section id="products-section">
@@ -56,7 +70,8 @@
         </section>
     </main>
 
-    <script src="app.js"></script>
+    <script src="./js/init_button.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 
 </html>

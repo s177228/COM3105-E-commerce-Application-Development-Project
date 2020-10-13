@@ -13,6 +13,18 @@ h1 {
   font-size: 5rem;
 }
 
+#login-interface{
+  visibility: hidden;
+  text-align: center;
+  font-size: 24px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.747);
+  position: absolute;
+  width: 90%;
+  height: 55vh;
+  left: 5%;
+}
+
 button {
   font-size: 2.5rem;
 }
