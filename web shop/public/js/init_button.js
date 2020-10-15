@@ -13,11 +13,26 @@ const init_button = () => {
         : "hidden";
   });
 
+  const cart_button = document.getElementById("cart-btn");
+
+  cart_button.addEventListener("click", () => {
+    text = "";
+    for (var key in cart) {
+      if (cart.hasOwnProperty(key)) {
+        text += `${cart[key]} ${items.find((x) => x.id == key).name}; `;
+      }
+    }
+    alert(`You have: ${text}`);
+  });
+
   const login_form = document.getElementById("login");
 
   login_form.addEventListener("submit", (evt) => {
-      evt.preventDefault();
+    evt.preventDefault();
 
-      console.log({account: document.getElementById('account').value, password: document.getElementById('password').value})
+    console.log({
+      account: document.getElementById("account").value,
+      password: document.getElementById("password").value,
+    });
   });
 };

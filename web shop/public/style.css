@@ -2,7 +2,7 @@
   margin: 0%;
   padding: 0%;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -13,16 +13,18 @@ h1 {
   font-size: 5rem;
 }
 
-#login-interface{
+#login-interface {
   visibility: hidden;
-  text-align: center;
-  font-size: 24px;
+  font-size: 18px;
   color: white;
   background-color: rgba(0, 0, 0, 0.747);
   position: absolute;
   width: 90%;
-  height: 55vh;
   left: 5%;
+}
+
+.form-group {
+  margin: 1rem;
 }
 
 button {
@@ -37,24 +39,27 @@ nav {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  padding: 1rem 5%;
+  padding: 0rem 5%;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-wrap: nowrap;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   border-bottom: 1px solid gray;
   background-color: white;
+}
+
+nav button{
+  margin-left: 5px;
 }
 
 main #products-section {
@@ -64,16 +69,16 @@ main #products-section {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
 }
 
 main #products-section .product-cell {
@@ -89,4 +94,5 @@ main #products-section .product-name {
 main #products-section .product-img {
   width: 50rem;
 }
+
 /*# sourceMappingURL=style.css.map */
