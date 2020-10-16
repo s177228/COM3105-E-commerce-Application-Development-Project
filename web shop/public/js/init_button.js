@@ -4,13 +4,13 @@ window.addEventListener("DOMContentLoaded", (evt) => {
 
 const init_button = () => {
   const login_button = document.getElementById("login-btn");
+  const login_close = document.getElementById("login-close");
 
   login_button.addEventListener("click", () => {
-    document.getElementById("login-interface").style.visibility =
-      getComputedStyle(document.getElementById("login-interface")).visibility ==
-      "hidden"
-        ? "visible"
-        : "hidden";
+    change_login();
+  });
+  login_close.addEventListener("click", () => {
+    change_login();
   });
 
   const cart_button = document.getElementById("cart-btn");
@@ -35,4 +35,12 @@ const init_button = () => {
       password: document.getElementById("password").value,
     });
   });
+};
+
+const change_login = () => {
+  document.getElementById("login-interface").style.visibility =
+    getComputedStyle(document.getElementById("login-interface")).visibility ==
+    "hidden"
+      ? "visible"
+      : "hidden";
 };
