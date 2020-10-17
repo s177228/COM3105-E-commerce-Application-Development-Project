@@ -1,0 +1,143 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+button {
+  font-size: 2.5rem;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+p {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 1rem 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid gray;
+  background-color: white;
+}
+
+nav #logo {
+  cursor: pointer;
+}
+
+main .login-bg {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+  top: 0;
+}
+
+main .login-main {
+  padding: 1.5rem;
+  font-size: 1.8rem;
+  background-color: white;
+  width: 30rem;
+  height: 30rem;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin: 0 !important;
+}
+
+main .login-main div {
+  width: 100%;
+}
+
+main .close-bt {
+  cursor: pointer;
+  text-align: right;
+  font-size: 5rem;
+  line-height: 1;
+}
+
+main #products-section {
+  padding: 0 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main #products-section .product-cell {
+  border: 1px solid gray;
+  text-align: center;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+main #products-section .product-cell .product-name {
+  padding: 1rem;
+}
+
+main #products-section .product-cell .product-img {
+  width: 40rem;
+  height: 40rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+main #products-section .product-cell .product-cart-btn {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+/*# sourceMappingURL=style.css.map */
