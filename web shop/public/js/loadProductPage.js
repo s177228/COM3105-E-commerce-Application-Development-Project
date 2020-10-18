@@ -7,33 +7,29 @@ const loadProductPage = () => {
     let urlParams = new URLSearchParams(window.location.search);
     const pid = urlParams.get('pid');
 
-    fetch("/api/items/all")
+    fetch(`api/item/${pid}`)
         .then((res) => {
             return res.json();
         })
         .then((res) => {
             const section = document.querySelector("#product-section");
-            items = res.body;
+            item = res.body;
 
             section.innerHTML = "";
-            items.forEach((element) => {
-                if (element.id == pid) {
-                    section.innerHTML = `
-                    <div class="product-cell">
-                <h3 class="product-name">${element.name}</h3>
+            section.innerHTML = `
+            <div class="product-cell">
+                <h3 class="product-name">${item.name}</h3>
                 <img class="product-img"></img>
                 <div class="product-card">
-                    <p class="product-price">Price: $${element.peice}</p>
+                    <p class="product-price">Price: $${item.price}</p>
                     <br>
-                    <p class="product-desc">${element.desc}</p>
+                    <p class="product-desc">${item.desc}</p>
                     <br>
-                    <p class="product-detail">${element.detail}
+                    <p class="product-detail">${item.detail}
                     </p>
                 </div>
             </div>
-                    `;
-                }
-            });
+            `;
         });
 
 
