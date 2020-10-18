@@ -8,9 +8,12 @@ app.use(express.static(__dirname + '/public'));
 const all_items = require('./router/api/all_items');
 app.use("/api", all_items);
 
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + "/public/index.html");
+})
+
 app.get('/product', (req, res) => {
-    const id = req.query.pid;
-    res.send(id);
+    res.sendFile(__dirname + "/public/product.html");
 })
 
 app.listen(port, function() {

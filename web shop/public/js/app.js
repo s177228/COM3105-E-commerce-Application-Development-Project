@@ -16,7 +16,7 @@ const fetch_items = () => {
             items.forEach((element) => {
                 section.innerHTML += `
       <div class="product-cell" id="product${element.id}">
-          <p class="product-name">${element.name}</p>
+          <h3 class="product-name">${element.name}</h3>
           <img class="product-img" src="./img/${element.img}"></img>
           <p class="product-price">$${element.price}</p>
           <p class="product-desc">${element.desc}</p>
@@ -25,8 +25,11 @@ const fetch_items = () => {
       `;
             });
             items.forEach(element => {
-                document.querySelector(`#product${element.id}`).addEventListener("click", function() {
-                    click(element.id);
+                document.querySelector(`#product${element.id}`).addEventListener("click", function(event) {
+                    // prevent fir when click cart-btn
+                    if (!(event.target.tagName == "BUTTON" || event.target.tagName == "I")) {
+                        click(element.id);
+                    }
                 });
             });
         });

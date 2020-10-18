@@ -15,11 +15,13 @@ h1 {
 
 button {
   font-size: 2.5rem;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
 }
 
+h3,
 p {
+  font-weight: normal;
   font-size: 2.5rem;
   margin: 0;
 }
@@ -88,22 +90,48 @@ main .login-main {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  margin: 0 !important;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-main .login-main div {
+main .login-main .form-section {
   width: 100%;
 }
 
-main .close-bt {
+main .login-main .form-section .form-section-group {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+main .login-main .form-section .form-section-group:nth-child(1) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+main .login-main .form-section .form-section-group .close-bt {
+  font-size: 3rem;
   cursor: pointer;
-  text-align: right;
-  font-size: 5rem;
-  line-height: 1;
+}
+
+main .login-main .form-section .form-section-group label,
+main .login-main .form-section .form-section-group input {
+  width: 100%;
+  display: block;
+  line-height: 1.5;
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+main section {
+  padding: 3rem 5%;
 }
 
 main #products-section {
-  padding: 0 5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -139,5 +167,64 @@ main #products-section .product-cell .product-img {
 main #products-section .product-cell .product-cart-btn {
   margin-top: 1rem;
   margin-bottom: 1.5rem;
+}
+
+main #product-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main #product-section .product-cell {
+  width: 100%;
+  border: 1px solid gray;
+  text-align: center;
+  margin: 1rem;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+main #product-section .product-cell .product-name {
+  padding: 1rem;
+  width: 100%;
+}
+
+main #product-section .product-cell .product-img {
+  width: 40rem;
+  height: 40rem;
+  overflow: hidden;
+  margin: 2.5rem;
+}
+
+main #product-section .product-cell .product-card {
+  margin: 2.5rem;
+  padding: 1rem;
+  text-align: left;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+main #product-section .product-cell .product-card * {
+  margin-bottom: 0.5rem;
 }
 /*# sourceMappingURL=style.css.map */
