@@ -31,7 +31,8 @@ button {
   border-radius: 4px;
 }
 
-button #inbox-btn, button #login-btn {
+button #inbox-btn,
+button #login-btn {
   background-color: rgba(163, 233, 135, 0.616);
 }
 

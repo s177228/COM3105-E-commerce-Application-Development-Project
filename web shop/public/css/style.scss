@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&family=Anton&family=Lobster&family=Overpass:wght@200&display=swap');
-
 * {
     margin: 0%;
     padding: 0%;
@@ -28,7 +27,8 @@ button {
     background-color: rgba(96, 115, 139, 0.616);
     border: 0;
     border-radius: 4px;
-    #inbox-btn,#login-btn  {
+    #inbox-btn,
+    #login-btn {
         background-color: rgba(163, 233, 135, 0.616);
     }
 }
@@ -51,15 +51,13 @@ nav {
     align-items: center;
     border-bottom: 0.5px solid rgba(187, 187, 187, 0.5);
     background-color: white;
-
     #logo {
         font-family: 'Lobster', cursive;
         font-weight: 100;
         cursor: pointer;
     }
-
-    .buttons{
-        button{
+    .buttons {
+        button {
             margin-bottom: 2px;
         }
         text-align: right;
@@ -68,7 +66,6 @@ nav {
 
 main {
     font-family: 'Overpass', sans-serif;
-
     .login-bg {
         visibility: hidden;
         width: 100%;
@@ -81,7 +78,6 @@ main {
         z-index: 1;
         top: 0;
     }
-
     .login-main {
         padding: 1.5rem;
         font-size: 1.8rem;
@@ -93,24 +89,19 @@ main {
         flex-direction: column;
         align-items: flex-end;
         justify-content: space-between;
-
         .form-section {
             width: 100%;
-
             .form-section-group {
                 width: 100%;
                 margin-bottom: 1rem;
-
                 &:nth-child(1) {
                     display: flex;
                     justify-content: flex-end;
                 }
-
                 .close-bt {
                     font-size: 3rem;
                     cursor: pointer;
                 }
-
                 label,
                 input {
                     width: 100%;
@@ -122,27 +113,22 @@ main {
             }
         }
     }
-
     section {
         padding: 3rem 5%;
     }
-
     #products-section {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-
         .product-cell {
             border: 1px solid gray;
             text-align: center;
             margin: 1rem;
             cursor: pointer;
-
             .product-name {
                 padding: 0.2rem;
             }
-
             .product-img {
                 width: 40rem;
                 height: 40rem;
@@ -150,19 +136,16 @@ main {
                 margin: 1.5rem;
                 border-radius: 5px;
             }
-
-            .product-price{
+            .product-price {
                 text-align: left;
                 margin-left: 2vw;
                 font-size: 2vw;
             }
-
-            .product-desc{
+            .product-desc {
                 text-align: left;
                 margin-left: 2vw;
                 font-size: 1.75vw;
             }
-
             .product-cart-btn {
                 background-color: aquamarine;
                 width: 90%;
@@ -171,13 +154,11 @@ main {
             }
         }
     }
-
     #product-section {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-
         .product-cell {
             width: 100%;
             border: 1px solid gray;
@@ -188,25 +169,21 @@ main {
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-around;
-
             .product-name {
                 padding: 1rem;
                 width: 100%;
             }
-
             .product-img {
                 width: 40rem;
                 height: 40rem;
                 overflow: hidden;
                 margin: 2.5rem;
             }
-
             .product-card {
                 margin: 2.5rem;
                 padding: 1rem;
                 text-align: left;
                 flex-grow: 1;
-
                 * {
                     margin-bottom: 0.5rem;
                 }
