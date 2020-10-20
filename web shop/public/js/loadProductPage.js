@@ -19,7 +19,7 @@ const loadProductPage = () => {
             section.innerHTML = `
             <div class="product-cell">
                 <h3 class="product-name">${item.name}</h3>
-                <img class="product-img"></img>
+                <img class="product-img" src="/api/image/${item.img}"></img>
                 <div class="product-card">
                     <p class="product-price">Price: $${item.price}</p>
                     <br>

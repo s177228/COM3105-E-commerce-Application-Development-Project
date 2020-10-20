@@ -17,7 +17,7 @@ const fetch_items = () => {
                 section.innerHTML += `
       <div class="product-cell" id="product${element.id}">
           <h3 class="product-name">${element.name}</h3>
-          <img class="product-img" src="./img/${element.img}"></img>
+          <img class="product-img" src="/api/image/${element.img}"></img>
           <p class="product-price">$${element.price}</p>
           <p class="product-desc">${element.desc}</p>
           <button onclick="buy(${element.id})" class="btn btn-success product-cart-btn"><i class='fas fa-shopping-cart'></i></button>

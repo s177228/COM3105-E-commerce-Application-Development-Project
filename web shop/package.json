@@ -5,12 +5,13 @@
   "main": "main.js",
   "scripts": {
     "start": "node main.js",
-    "test": "nodemon main.js"
+    "test": "nodemon --ignore db.json main.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
+    "lowdb": "^1.0.0",
     "nodemon": "^2.0.4"
   }
 }
