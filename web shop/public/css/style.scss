@@ -66,6 +66,22 @@ nav {
 
 main {
     font-family: 'Overpass', sans-serif;
+    section {
+        padding: 3rem 5%;
+    }
+    .dummy-ad {
+        height: 20rem;
+        width: 100%;
+        background-color: darkkhaki;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+            color: lightgray;
+            text-transform: uppercase;
+            font-size: 7rem;
+        }
+    }
     .login-bg {
         visibility: hidden;
         width: 100%;
@@ -77,44 +93,41 @@ main {
         align-items: center;
         z-index: 1;
         top: 0;
-    }
-    .login-main {
-        padding: 1.5rem;
-        font-size: 1.8rem;
-        background-color: white;
-        width: 30rem;
-        height: 30rem;
-        border-radius: 4px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: space-between;
-        .form-section {
-            width: 100%;
-            .form-section-group {
+        .login-main {
+            padding: 1.5rem;
+            font-size: 1.8rem;
+            background-color: white;
+            width: 30rem;
+            height: 30rem;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+            .form-section {
                 width: 100%;
-                margin-bottom: 1rem;
-                &:nth-child(1) {
-                    display: flex;
-                    justify-content: flex-end;
-                }
-                .close-bt {
-                    font-size: 3rem;
-                    cursor: pointer;
-                }
-                label,
-                input {
+                .form-section-group {
                     width: 100%;
-                    display: block;
-                    line-height: 1.5;
-                    padding: 0 0.5rem;
-                    cursor: pointer;
+                    margin-bottom: 1rem;
+                    &:nth-child(1) {
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                    .close-bt {
+                        font-size: 3rem;
+                        cursor: pointer;
+                    }
+                    label,
+                    input {
+                        width: 100%;
+                        display: block;
+                        line-height: 1.5;
+                        padding: 0 0.5rem;
+                        cursor: pointer;
+                    }
                 }
             }
         }
-    }
-    section {
-        padding: 3rem 5%;
     }
     #products-section {
         display: flex;

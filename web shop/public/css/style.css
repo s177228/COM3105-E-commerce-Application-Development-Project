@@ -85,6 +85,31 @@ main {
   font-family: 'Overpass', sans-serif;
 }
 
+main section {
+  padding: 3rem 5%;
+}
+
+main .dummy-ad {
+  height: 20rem;
+  width: 100%;
+  background-color: darkkhaki;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .dummy-ad span {
+  color: lightgray;
+  text-transform: uppercase;
+  font-size: 7rem;
+}
+
 main .login-bg {
   visibility: hidden;
   width: 100%;
@@ -104,7 +129,7 @@ main .login-bg {
   top: 0;
 }
 
-main .login-main {
+main .login-bg .login-main {
   padding: 1.5rem;
   font-size: 1.8rem;
   background-color: white;
@@ -126,16 +151,16 @@ main .login-main {
           justify-content: space-between;
 }
 
-main .login-main .form-section {
+main .login-bg .login-main .form-section {
   width: 100%;
 }
 
-main .login-main .form-section .form-section-group {
+main .login-bg .login-main .form-section .form-section-group {
   width: 100%;
   margin-bottom: 1rem;
 }
 
-main .login-main .form-section .form-section-group:nth-child(1) {
+main .login-bg .login-main .form-section .form-section-group:nth-child(1) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,22 +169,18 @@ main .login-main .form-section .form-section-group:nth-child(1) {
           justify-content: flex-end;
 }
 
-main .login-main .form-section .form-section-group .close-bt {
+main .login-bg .login-main .form-section .form-section-group .close-bt {
   font-size: 3rem;
   cursor: pointer;
 }
 
-main .login-main .form-section .form-section-group label,
-main .login-main .form-section .form-section-group input {
+main .login-bg .login-main .form-section .form-section-group label,
+main .login-bg .login-main .form-section .form-section-group input {
   width: 100%;
   display: block;
   line-height: 1.5;
   padding: 0 0.5rem;
   cursor: pointer;
-}
-
-main section {
-  padding: 3rem 5%;
 }
 
 main #products-section {
