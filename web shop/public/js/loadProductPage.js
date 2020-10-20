@@ -21,7 +21,7 @@ const loadProductPage = () => {
                 <h3 class="product-name">${item.name}</h3>
                 <img class="product-img" src="/api/image/${item.img}"></img>
                 <div class="product-card">
-                    <p class="product-price">Price: $${item.price}</p>
+                    <p class="product-price">Price: HK$${item.price}</p>
                     <br>
                     <p class="product-desc">${item.desc}</p>
                     <br>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Lobster&family=Overpass:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed&family=Anton&family=Lobster&family=Overpass:wght@200&display=swap");
 * {
   margin: 0%;
   padding: 0%;
@@ -22,9 +22,17 @@ h1 {
 }
 
 button {
-  font-size: 2.5rem;
-  padding: 0.5rem 1rem;
+  font-family: 'Sansita Swashed', cursive;
+  font-size: 2rem;
+  padding: 0.5rem 0.75rem;
   cursor: pointer;
+  background-color: rgba(96, 115, 139, 0.616);
+  border: 0;
+  border-radius: 4px;
+}
+
+button #inbox-btn, button #login-btn {
+  background-color: rgba(163, 233, 135, 0.616);
 }
 
 h3,
@@ -54,7 +62,7 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 1px solid gray;
+  border-bottom: 0.5px solid rgba(187, 187, 187, 0.5);
   background-color: white;
 }
 
@@ -62,6 +70,14 @@ nav #logo {
   font-family: 'Lobster', cursive;
   font-weight: 100;
   cursor: pointer;
+}
+
+nav .buttons {
+  text-align: right;
+}
+
+nav .buttons button {
+  margin-bottom: 2px;
 }
 
 main {
@@ -168,17 +184,32 @@ main #products-section .product-cell {
 }
 
 main #products-section .product-cell .product-name {
-  padding: 1rem;
+  padding: 0.2rem;
 }
 
 main #products-section .product-cell .product-img {
   width: 40rem;
   height: 40rem;
   overflow: hidden;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem;
+  border-radius: 5px;
+}
+
+main #products-section .product-cell .product-price {
+  text-align: left;
+  margin-left: 2vw;
+  font-size: 2vw;
+}
+
+main #products-section .product-cell .product-desc {
+  text-align: left;
+  margin-left: 2vw;
+  font-size: 1.75vw;
 }
 
 main #products-section .product-cell .product-cart-btn {
+  background-color: aquamarine;
+  width: 90%;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
 }

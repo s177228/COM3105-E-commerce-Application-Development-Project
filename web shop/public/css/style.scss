@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Lobster&family=Overpass:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&family=Anton&family=Lobster&family=Overpass:wght@200&display=swap');
+
 * {
     margin: 0%;
     padding: 0%;
@@ -20,9 +21,16 @@ h1 {
 }
 
 button {
-    font-size: 2.5rem;
-    padding: 0.5rem 1rem;
+    font-family: 'Sansita Swashed', cursive;
+    font-size: 2rem;
+    padding: 0.5rem 0.75rem;
     cursor: pointer;
+    background-color: rgba(96, 115, 139, 0.616);
+    border: 0;
+    border-radius: 4px;
+    #inbox-btn,#login-btn  {
+        background-color: rgba(163, 233, 135, 0.616);
+    }
 }
 
 h3,
@@ -41,17 +49,26 @@ nav {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid gray;
+    border-bottom: 0.5px solid rgba(187, 187, 187, 0.5);
     background-color: white;
+
     #logo {
         font-family: 'Lobster', cursive;
         font-weight: 100;
         cursor: pointer;
     }
+
+    .buttons{
+        button{
+            margin-bottom: 2px;
+        }
+        text-align: right;
+    }
 }
 
 main {
     font-family: 'Overpass', sans-serif;
+
     .login-bg {
         visibility: hidden;
         width: 100%;
@@ -64,6 +81,7 @@ main {
         z-index: 1;
         top: 0;
     }
+
     .login-main {
         padding: 1.5rem;
         font-size: 1.8rem;
@@ -75,19 +93,24 @@ main {
         flex-direction: column;
         align-items: flex-end;
         justify-content: space-between;
+
         .form-section {
             width: 100%;
+
             .form-section-group {
                 width: 100%;
                 margin-bottom: 1rem;
+
                 &:nth-child(1) {
                     display: flex;
                     justify-content: flex-end;
                 }
+
                 .close-bt {
                     font-size: 3rem;
                     cursor: pointer;
                 }
+
                 label,
                 input {
                     width: 100%;
@@ -99,39 +122,62 @@ main {
             }
         }
     }
+
     section {
         padding: 3rem 5%;
     }
+
     #products-section {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+
         .product-cell {
             border: 1px solid gray;
             text-align: center;
             margin: 1rem;
             cursor: pointer;
+
             .product-name {
-                padding: 1rem;
+                padding: 0.2rem;
             }
+
             .product-img {
                 width: 40rem;
                 height: 40rem;
                 overflow: hidden;
-                margin-bottom: 1.5rem;
+                margin: 1.5rem;
+                border-radius: 5px;
             }
+
+            .product-price{
+                text-align: left;
+                margin-left: 2vw;
+                font-size: 2vw;
+            }
+
+            .product-desc{
+                text-align: left;
+                margin-left: 2vw;
+                font-size: 1.75vw;
+            }
+
             .product-cart-btn {
+                background-color: aquamarine;
+                width: 90%;
                 margin-top: 1rem;
                 margin-bottom: 1.5rem;
             }
         }
     }
+
     #product-section {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+
         .product-cell {
             width: 100%;
             border: 1px solid gray;
@@ -142,21 +188,25 @@ main {
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-around;
+
             .product-name {
                 padding: 1rem;
                 width: 100%;
             }
+
             .product-img {
                 width: 40rem;
                 height: 40rem;
                 overflow: hidden;
                 margin: 2.5rem;
             }
+
             .product-card {
                 margin: 2.5rem;
                 padding: 1rem;
                 text-align: left;
                 flex-grow: 1;
+
                 * {
                     margin-bottom: 0.5rem;
                 }
