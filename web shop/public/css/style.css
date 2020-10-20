@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Lobster&family=Overpass:wght@200&display=swap");
 * {
   margin: 0%;
   padding: 0%;
@@ -37,7 +38,7 @@ nav {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  padding: 1rem 5%;
+  padding: 0.25rem 5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -58,7 +59,13 @@ nav {
 }
 
 nav #logo {
+  font-family: 'Lobster', cursive;
+  font-weight: 100;
   cursor: pointer;
+}
+
+main {
+  font-family: 'Overpass', sans-serif;
 }
 
 main .login-bg {

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Lobster&family=Overpass:wght@200&display=swap');
 * {
     margin: 0%;
     padding: 0%;
@@ -9,7 +10,7 @@ html {
 }
 
 a,
-a:visited{
+a:visited {
     color: black;
     text-decoration-line: none;
 }
@@ -34,7 +35,7 @@ p {
 nav {
     position: sticky;
     top: 0;
-    padding: 1rem 5%;
+    padding: 0.25rem 5%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -43,11 +44,14 @@ nav {
     border-bottom: 1px solid gray;
     background-color: white;
     #logo {
+        font-family: 'Lobster', cursive;
+        font-weight: 100;
         cursor: pointer;
     }
 }
 
 main {
+    font-family: 'Overpass', sans-serif;
     .login-bg {
         visibility: hidden;
         width: 100%;

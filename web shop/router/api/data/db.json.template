@@ -2,43 +2,55 @@
   "items": [
     {
       "id": 1,
+      "sellId": 1,
       "name": "apple",
       "price": 10,
       "img": "apple.png",
       "desc": "this is an apple.",
-      "detail": "I am selling an apple for 10$, if you buy more than 10 apple, I can free one for you :)"
+      "detail": "I am selling an apple for 10$, if you buy more than 10 apple, I can free one for you :)",
+      "buyerId": null
+    },
+    {
+      "id": 1,
+      "sellId": 1,
+      "name": "banana",
+      "price": 220,
+      "img": "banana.jpg",
+      "desc": "this is an banana.",
+      "detail": "I am selling an banana for 220$, if you buy more than 220 apple, I can free one for you :)",
+      "buyerId": null
+    }
+  ],
+  "account": [
+    {
+      "id": 1,
+      "username": "user1",
+      "password": "user1pw",
+      "email": "user1@google.com",
+      "signUpDate": "1-1-1997"
     },
     {
       "id": 2,
-      "name": "banana",
-      "price": 20,
-      "img": "banana.jpg",
-      "desc": "this is a banana.",
-      "detail": "This is a broken banana, I don't want to eat."
+      "username": "user2",
+      "password": "user2pw",
+      "email": "user2@google.com",
+      "signUpDateTime": "1-2-2020"
+    }
+  ],
+  "chat": [
+    {
+      "priductId": 1,
+      "buyerId": 2,
+      "senderId": 2,
+      "content": "i want it.",
+      "dateTime": "00:00:00 2-2-2020"
     },
     {
-      "id": 3,
-      "name": "cat",
-      "price": 253.5,
-      "img": "cat.jpg",
-      "desc": "this is a cat.",
-      "detail": "Cat is cute"
-    },
-    {
-      "id": 4,
-      "name": "dog",
-      "price": 130.5,
-      "img": "dog.jpeg",
-      "desc": "this is a dog.",
-      "detail": "Dog is cute"
-    },
-    {
-      "id": 5,
-      "name": "egg",
-      "price": 14,
-      "img": "egg.jpg",
-      "desc": "this is an egg.",
-      "detail": "This egg is come from japan"
+      "priductId": 1,
+      "buyerId": 2,
+      "senderId": 1,
+      "content": "ok.",
+      "dateTime": "00:00:00 3-3-2020"
     }
   ]
 }
