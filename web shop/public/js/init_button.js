@@ -6,6 +6,7 @@ const init_button = () => {
     const logo = document.querySelector("#logo");
     const login_button = document.getElementById("login-btn");
     const login_close = document.getElementById("login-close");
+    const inbox_btn = document.querySelector("#inbox-btn");
 
     logo.addEventListener("click", () => {
         document.location.href = "/";
@@ -16,6 +17,9 @@ const init_button = () => {
     });
     login_close.addEventListener("click", () => {
         change_login();
+    });
+    inbox_btn.addEventListener("click", () => {
+        change_inbox();
     });
 
     const cart_button = document.getElementById("cart-btn");
@@ -45,6 +49,14 @@ const init_button = () => {
 const change_login = () => {
     document.getElementById("login-interface").style.visibility =
         getComputedStyle(document.getElementById("login-interface")).visibility ==
+        "hidden" ?
+        "visible" :
+        "hidden";
+};
+
+const change_inbox = () => {
+    document.getElementById("inbox-div").style.visibility =
+        getComputedStyle(document.getElementById("inbox-div")).visibility ==
         "hidden" ?
         "visible" :
         "hidden";

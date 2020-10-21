@@ -204,3 +204,98 @@ main {
         }
     }
 }
+
+footer {
+    position: sticky;
+    bottom: 0;
+    padding: 0.25rem 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    border-top: 0.5px solid rgba(187, 187, 187, 0.5);
+    background-color: white;
+}
+
+#inbox-div {
+    visibility: hidden;
+    position: absolute;
+    bottom: 4rem;
+    right: 0;
+    height: 60rem;
+    width: 60rem;
+    background-color: lightgreen;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    ;
+    #inbox-menu {
+        background-color: lightsteelblue;
+        width: 30%;
+        ul {
+            list-style: none;
+            padding: 1rem;
+            overflow-y: auto;
+            li {
+                padding: 0.5rem;
+                border-bottom: solid 0.5px lightgray;
+            }
+        }
+    }
+    #inbox-room {
+        background-color: lightgrey;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: stretch;
+        header {
+            padding: 1rem;
+            font-weight: bold;
+            border-bottom: solid 0.5px rgba(187, 187, 187, 0.5);
+        }
+        ul {
+            flex-grow: 1;
+            list-style: none;
+            position: relative;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            li {
+                margin: 1rem;
+                padding: 0.5rem 1rem;
+                border-radius: 1rem;
+                display: inline-block;
+            }
+            li span {
+                display: block;
+            }
+            li .line-dateTime {
+                text-align: right;
+            }
+            .received-line {
+                margin-right: auto;
+                background-color: lightslategrey;
+            }
+            .sent-line {
+                margin-left: auto;
+                background-color: lightgreen;
+            }
+        }
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            * {
+                height: 3rem;
+            }
+            input[type="text"] {
+                flex-grow: 1;
+            }
+        }
+    }
+}
