@@ -20,21 +20,22 @@
             "buyerId": null
         }
     ],
-    "account": [{
-            "id": 1,
-            "username": "user1",
-            "password": "user1pw",
-            "email": "user1@google.com",
-            "signUpDate": "1-1-1997"
-        },
-        {
-            "id": 2,
-            "username": "user2",
-            "password": "user2pw",
-            "email": "user2@google.com",
-            "signUpDateTime": "1-2-2020"
-        }
-    ],
+  "account": [
+    {
+      "id": 1,
+      "account": "user1",
+      "password": "$2b$10$YN67R06hwyAaGRaG0mWqG.PpNXWqZoLxwV5DeOjsaWZsD9NZJNl1y",
+      "email": "user1@google.com",
+      "signUpDate": "2020-10-22T20:20:12.611Z"
+    },
+    {
+      "id": 2,
+      "account": "user2",
+      "password": "$2b$10$rdyPxv7SIMFK8l5hNo1AHO/WKzOAk7OCpjEzsCmc9L8Vg06AUuLB2",
+      "email": "user2@google.com",
+      "signUpDate": "2020-10-22T20:20:21.133Z"
+    }
+  ],
     "chat": [{
             "priductId": 1,
             "buyerId": 2,

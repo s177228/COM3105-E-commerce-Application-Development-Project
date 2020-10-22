@@ -1,7 +1,11 @@
 const express = require("express");
-const { get } = require("./router/api/all_items");
 const app = express();
 const port = 3000;
+const bodyParser = require("body-parser");
+
+//middle ware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // public view
 // define the home page route
@@ -13,13 +17,17 @@ app.get("/product", (req, res) => {
 // database (lowdb)
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
-const adapter = new FileSync("./router/api/data/db.json");
+const adapter = new FileSync("./router/data/db.json");
 const db = low(adapter);
 db.defaults({ items: [] }).write();
 
 // router
-const all_items = require("./router/api/all_items");
-app.use("/api", all_items);
+// item
+const item = require("./router/item");
+app.use("/api", item);
+// account
+const account = require("./router/account");
+app.use("/api", account);
 
 // app listening on port
 app.listen(port, function () {
