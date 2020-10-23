@@ -21,7 +21,10 @@ h1 {
   font-size: 5rem;
 }
 
-button {
+button,
+input[type=submit],
+input[type=button],
+input[type=file] {
   font-family: 'Sansita Swashed', cursive;
   font-size: 2rem;
   padding: 0.5rem 0.75rem;
@@ -32,7 +35,13 @@ button {
 }
 
 button #inbox-btn,
-button #login-btn {
+button #login-btn,
+input[type=submit] #inbox-btn,
+input[type=submit] #login-btn,
+input[type=button] #inbox-btn,
+input[type=button] #login-btn,
+input[type=file] #inbox-btn,
+input[type=file] #login-btn {
   background-color: rgba(163, 233, 135, 0.616);
 }
 
@@ -83,6 +92,18 @@ nav .buttons button {
 
 main {
   font-family: 'Overpass', sans-serif;
+}
+
+main input[type=text],
+main input[type=password] {
+  height: 2em;
+  font-size: 16px;
+}
+
+main input[type=submit],
+main input[type=button] {
+  height: 2em;
+  font-size: 16px;
 }
 
 main section {
@@ -175,6 +196,7 @@ main .login-bg .register-main .form-section .form-section-group:nth-child(1) {
 
 main .login-bg .login-main .form-section .form-section-group .close-bt,
 main .login-bg .register-main .form-section .form-section-group .close-bt {
+  margin: -23px -12px -26px 0;
   font-size: 3rem;
   cursor: pointer;
 }

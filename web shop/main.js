@@ -17,7 +17,7 @@ app.get("/product", (req, res) => {
 // database (lowdb)
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
-const adapter = new FileSync("./router/api/data/db.json");
+const adapter = new FileSync("./router/data/db.json");
 const db = low(adapter);
 db.defaults({ items: [] }).write();
 

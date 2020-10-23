@@ -2,30 +2,43 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Cybersell -Sell</title>
     <!-- ajax makes life easier -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <title>Upload</title>
 </head>
 
 <body>
-    This is a testing page.
-    <form action="/" id="postForm">
-        <label for="sellerId">sellerId:</label>
-        <input type="text" name="sellerId" value="1"><br>
-        <label for="name">name:</label>
-        <input type="text" name="name" value="Name"><br>
-        <label for="price">price:</label>
-        <input type="text" name="price" value="1200"><br>
-        <label for="desc">desc:</label>
-        <input type="text" name="desc" value="This product is good."><br>
-        <label for="detail">detail:</label>
-        <input type="text" name="detail" value="This product is good good."><br>
-        <label for="detail">Upload your product image:</label><br>
-        <input type="file" name="fileToUpload" id="fileToUpload"><br>
-        <input type="submit">
-    </form>
+    <nav>
+        <a href="./">
+            <h1 id="logo">Cybersell</h1>
+        </a>
+        <div class="buttons">
+            <button id="login-btn">Login</button>
+        </div>
+    </nav>
+
+    <main>
+        This is a testing page.
+        <form action="/" id="postForm">
+            <label for="sellerId">sellerId:</label>
+            <input type="text" id="sellerId" name="sellerId" value="1"><br>
+            <label for="name">name:</label>
+            <input type="text" id="name" name="name" value="Name"><br>
+            <label for="price">price:</label>
+            <input type="text" id="price" name="price" value="1200"><br>
+            <label for="desc">desc:</label>
+            <input type="text" id="desc" name="desc" value="This product is good."><br>
+            <label for="detail">detail:</label>
+            <input type="text" id="detail" name="detail" value="This product is good good."><br>
+            <label for="detail">Upload your product image:</label><br>
+            <input type="file" name="fileToUpload" id="fileToUpload"><br>
+            <input type="submit">
+        </form>
+    </main>
 
     <script>
         //for easier to  (testing)
@@ -41,9 +54,9 @@
                 type: "POST",
                 success: (response, status, xhr) => {
                     console.log(response)
-                    if(xhr.status == 200){
+                    if (xhr.status == 200) {
                         //success
-                    } else{
+                    } else {
                         //fail
                     }
                 }

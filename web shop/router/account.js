@@ -9,12 +9,12 @@ const adapter = new FileSync("./router/data/db.json");
 router.route("/account/login").post((req, res) => {
   const db = low(adapter);
   if (db.get("account").find({ account: req.body.account }).value() == null) {
-    res.status(400).send({ msg: "account not exist!" });
+    res.status(201).send({ msg: "account not exist!" });
   } else {
     password = db.get("account").find({ account: req.body.account }).value()
       .password;
     if (!bcrypt.compareSync(req.body.password, password)) {
-      res.status(400).send({ msg: "password is incorrect!" });
+      res.status(201).send({ msg: "password is incorrect!" });
     } else {
       res.status(200).send({ msg: "login!" });
     }
@@ -30,13 +30,13 @@ router.route("/account/register").post((req, res) => {
     req.body.password == null ||
     req.body.email == null
   ) {
-    res.status(400).send({ msg: "some slot are empty." });
+    res.status(201).send({ msg: "some slot are empty." });
   } else {
     signUpDate = new Date();
     const db = low(adapter);
 
     if (db.get("account").find({ account: account }).value() != null) {
-      res.status(400).send({ msg: "account exist!" });
+      res.status(201).send({ msg: "account exist!" });
     } else {
       // Add find max id + 1 function on db
       db._.mixin({
