@@ -6,7 +6,10 @@ const init_button = () => {
     const logo = document.querySelector("#logo");
     const login_button = document.getElementById("login-btn");
     const login_close = document.getElementById("login-close");
+    const register_close = document.getElementById("register-close");
     const inbox_btn = document.querySelector("#inbox-btn");
+    const register_ui_btn = document.querySelector("#register-ui-btn");
+    const login_ui_btn = document.querySelector("#login-ui-btn");
 
     logo.addEventListener("click", () => {
         document.location.href = "/";
@@ -18,9 +21,20 @@ const init_button = () => {
     login_close.addEventListener("click", () => {
         change_login();
     });
+    register_close.addEventListener("click", () => {
+        change_login();
+    });
     inbox_btn.addEventListener("click", () => {
         change_inbox();
     });
+    register_ui_btn.addEventListener("click", () => {
+        change_login_register();
+    });
+    login_ui_btn.addEventListener("click", () => {
+        change_login_register();
+    });
+
+
 
     const cart_button = document.getElementById("cart-btn");
 
@@ -61,3 +75,17 @@ const change_inbox = () => {
         "visible" :
         "hidden";
 };
+
+const change_login_register = () => {
+    document.querySelector("#login").style.display =
+        getComputedStyle(document.getElementById("login")).display ==
+        "flex" ?
+        "none" :
+        "flex";
+
+    document.querySelector("#register").style.display =
+        getComputedStyle(document.getElementById("register")).display ==
+        "none" ?
+        "flex" :
+        "none";
+}

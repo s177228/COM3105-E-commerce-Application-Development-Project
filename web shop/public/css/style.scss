@@ -93,7 +93,8 @@ main {
         align-items: center;
         z-index: 1;
         top: 0;
-        .login-main {
+        .login-main,
+        .register-main {
             padding: 1.5rem;
             font-size: 1.8rem;
             background-color: white;
@@ -125,8 +126,21 @@ main {
                         padding: 0 0.5rem;
                         cursor: pointer;
                     }
+                    #register-ui-btn,
+                    #login-ui-btn {
+                        display: inline-block;
+                        width: 100%;
+                        font-size: 1rem;
+                        font-weight: bold;
+                        text-decoration: underline;
+                        text-align: center;
+                        cursor: pointer;
+                    }
                 }
             }
+        }
+        .register-main {
+            display: none;
         }
     }
     #products-section {
@@ -230,7 +244,6 @@ footer {
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: stretch;
-    ;
     #inbox-menu {
         background-color: lightsteelblue;
         width: 30%;

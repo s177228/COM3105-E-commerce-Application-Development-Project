@@ -11,13 +11,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // define the home page route
 app.use(express.static(__dirname + "/public"));
 app.get("/product", (req, res) => {
-  res.sendFile(__dirname + "/public/product.html");
+    res.sendFile(__dirname + "/public/product.html");
 });
 
 // database (lowdb)
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
-const adapter = new FileSync("./router/data/db.json");
+const adapter = new FileSync("./router/api/data/db.json");
 const db = low(adapter);
 db.defaults({ items: [] }).write();
 
@@ -30,6 +30,6 @@ const account = require("./router/account");
 app.use("/api", account);
 
 // app listening on port
-app.listen(port, function () {
-  console.log("Express app started on " + port);
+app.listen(port, function() {
+    console.log("Express app started on " + port);
 });

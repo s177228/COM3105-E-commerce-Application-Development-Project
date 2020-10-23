@@ -129,7 +129,8 @@ main .login-bg {
   top: 0;
 }
 
-main .login-bg .login-main {
+main .login-bg .login-main,
+main .login-bg .register-main {
   padding: 1.5rem;
   font-size: 1.8rem;
   background-color: white;
@@ -151,16 +152,19 @@ main .login-bg .login-main {
           justify-content: space-between;
 }
 
-main .login-bg .login-main .form-section {
+main .login-bg .login-main .form-section,
+main .login-bg .register-main .form-section {
   width: 100%;
 }
 
-main .login-bg .login-main .form-section .form-section-group {
+main .login-bg .login-main .form-section .form-section-group,
+main .login-bg .register-main .form-section .form-section-group {
   width: 100%;
   margin-bottom: 1rem;
 }
 
-main .login-bg .login-main .form-section .form-section-group:nth-child(1) {
+main .login-bg .login-main .form-section .form-section-group:nth-child(1),
+main .login-bg .register-main .form-section .form-section-group:nth-child(1) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -169,18 +173,38 @@ main .login-bg .login-main .form-section .form-section-group:nth-child(1) {
           justify-content: flex-end;
 }
 
-main .login-bg .login-main .form-section .form-section-group .close-bt {
+main .login-bg .login-main .form-section .form-section-group .close-bt,
+main .login-bg .register-main .form-section .form-section-group .close-bt {
   font-size: 3rem;
   cursor: pointer;
 }
 
 main .login-bg .login-main .form-section .form-section-group label,
-main .login-bg .login-main .form-section .form-section-group input {
+main .login-bg .login-main .form-section .form-section-group input,
+main .login-bg .register-main .form-section .form-section-group label,
+main .login-bg .register-main .form-section .form-section-group input {
   width: 100%;
   display: block;
   line-height: 1.5;
   padding: 0 0.5rem;
   cursor: pointer;
+}
+
+main .login-bg .login-main .form-section .form-section-group #register-ui-btn,
+main .login-bg .login-main .form-section .form-section-group #login-ui-btn,
+main .login-bg .register-main .form-section .form-section-group #register-ui-btn,
+main .login-bg .register-main .form-section .form-section-group #login-ui-btn {
+  display: inline-block;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+  cursor: pointer;
+}
+
+main .login-bg .register-main {
+  display: none;
 }
 
 main #products-section {
