@@ -59,7 +59,12 @@ const init_button = () => {
         }
       })
       .then((res) => {
-        res ? console.log(res) : null;
+        if (res) {
+          console.log(res);
+          document.getElementById("login_message").innerHTML = res.msg;
+        } else{
+          document.getElementById("login_message").innerHTML = "Login Done";
+        }
       });
   });
 
@@ -70,6 +75,7 @@ const init_button = () => {
       document.getElementById("register_password").value !=
       document.getElementById("register_confirm_password").value
     ) {
+      document.getElementById("register_message").innerHTML = "2 password is not the same";
       console.log("2 password is not the same");
     } else {
       fetch("api/account/register", {
@@ -92,7 +98,12 @@ const init_button = () => {
           }
         })
         .then((res) => {
-          res ? console.log(res) : null;
+          if (res) {
+            console.log(res);
+            document.getElementById("register_message").innerHTML = res.msg;
+          } else{
+            document.getElementById("register_message").innerHTML = "Register Done";
+          }
         });
     }
   });

@@ -118,6 +118,12 @@ main {
             flex-direction: column;
             align-items: flex-end;
             justify-content: space-between;
+            .form-top{
+                text-align: center;
+                .form-msg{
+                    margin: auto;
+                }
+            }
             .form-section {
                 width: 100%;
                 .form-section-group {

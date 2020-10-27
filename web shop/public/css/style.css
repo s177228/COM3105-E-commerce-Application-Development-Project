@@ -173,6 +173,16 @@ main .login-bg .register-main {
           justify-content: space-between;
 }
 
+main .login-bg .login-main .form-top,
+main .login-bg .register-main .form-top {
+  text-align: center;
+}
+
+main .login-bg .login-main .form-top .form-msg,
+main .login-bg .register-main .form-top .form-msg {
+  margin: auto;
+}
+
 main .login-bg .login-main .form-section,
 main .login-bg .register-main .form-section {
   width: 100%;

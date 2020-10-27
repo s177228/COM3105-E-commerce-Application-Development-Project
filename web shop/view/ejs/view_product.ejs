@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cybersell - PRODUCT_NAME</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/loadProductPage.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
     <nav>
-        <a href="./">
+        <a href="/">
             <h1 id="logo">Cybersell</h1>
         </a>
         <div>
@@ -23,16 +22,14 @@
     <main>
         <section id="product-section">
             <div class="product-cell">
-                <h3 class="product-name">product name</h3>
-                <img class="product-img"></img>
+                <h3 class="product-name"><%= name %></h3>
+                <img class="product-img" src="/api/image/<%= img %>"></img>
                 <div class="product-card">
-                    <p class="product-price">Price: $100</p>
+                    <p class="product-price"><%= price %></p>
                     <br>
-                    <p class="product-desc">hi,I am a product</p>
+                    <p class="product-desc"><%= desc %></p>
                     <br>
-                    <p class="product-detail">Lorem ipsum dolor sit amet consecteturproduct-detail<br> adipisicing elit. Dolore, quasi explicabo. aspernatur porro pariaturproduct-detail<br> autem ipsum voluptas omnis <br>iste distinctio delectus minus tenetur facere dolores, aut
-                        animi error vero.
-                    </p>
+                    <p class="product-detail"><%= detail %></p>
                 </div>
             </div>
         </section>
