@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const bodyParser = require("body-parser");
+const cookieParser = require('cookie-parser')
 
 // view engine
 app.set("view engine", "ejs");
@@ -24,7 +25,7 @@ app.use(express.static(__dirname + "/public"));
 // use ejs view engine render /
 const index = require("./view/index");
 app.use("/", index)
-// use ejs view engine render /product/pid/:pid
+    // use ejs view engine render /product/pid/:pid
 const product = require("./view/product");
 app.use("/product", product)
 
@@ -35,6 +36,16 @@ app.use("/api", item);
 // account
 const account = require("./router/account");
 app.use("/api", account);
+app.use(cookieParser('123456789'));
+// message
+const messages = require("./router/messages");
+app.use("/api", messages);
+
+
+app.get("/test", (req, res) => {
+    res.sendFile(__dirname + "/public/test.html");
+});
+
 
 // app listening on port
 app.listen(port, function() {

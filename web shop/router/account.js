@@ -6,6 +6,7 @@ const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 const adapter = new FileSync("./router/data/db.json");
 
+
 const mongoose = require('mongoose');
 const keys = require('./keys');
 
@@ -52,7 +53,11 @@ router.route("/account/login").post((req, res) => {
                         if (!bcrypt.compareSync(password, docs.password)) {
                             res.status(201).send({ msg: "incorrect password" });
                         } else {
-                            res.status(200).send({ msg: "login" });
+                            // res.status(200).send({ msg: "login" });
+                            res.cookie('id', docs.id, { signed: true });
+                            res.cookie('account', account, { signed: true });
+                            res.cookie('password', password, { signed: true });
+                            res.redirect('/');
                         }
                     }
                 });
@@ -94,8 +99,12 @@ router.route("/account/register").post((req, res) => {
                                 "password": password,
                                 "email": email
                             }, () => {
-                                res.status(200).send({ msg: "account created" });
+                                // res.status(200).send({ msg: "account created" });
                                 mongoose.connection.close();
+                                res.cookie('id', id, { signed: true });
+                                res.cookie('account', account, { signed: true });
+                                res.cookie('password', password, { signed: true });
+                                res.redirect('/');
                             });
                         }
                     });
