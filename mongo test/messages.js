@@ -52,9 +52,9 @@ const getAllMessage = (userId, callback) => {
 // sendMessage(10, 1, 2, 1, "hello from 1")
 // sendMessage(10, 1, 2, 2, "hello from 2")
 // sendMessage(10, 3, 4, 4, "hellofrom 4")
-getAllMessage(5, (res) => {
-    console.log(res);
-});
+// getAllMessage(5, (res) => {
+//     console.log(res);
+// });
 
 module.exports = { sendMessage, getAllMessage };
 

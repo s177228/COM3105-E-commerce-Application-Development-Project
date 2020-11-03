@@ -1,6 +1,29 @@
 const mongoose = require('mongoose');
 const { send } = require('process');
 const keys = require('./keys');
+const express = require('express');
+const router = express.Router();
+
+// router.route("/messages/sendMessage").post((req, res) => {
+//     if (req.signedCookies.id && req.signedCookies.account && req.signedCookies.password) {
+
+//     }
+// });
+
+// router.route("/messages/getAllMessage").post(
+//     (req, res) => {
+//         if (req.signedCookies.id && req.signedCookies.account && req.signedCookies.password) {
+//             const id = req.signedCookies.id;
+//             res.send.getAllMessage(id);
+//         }
+//     }
+// );
+router.route("/messages/getAllMessage").get((req, res) => {
+    getAllMessages(1, (docs) => {
+        res.send(docs);
+    });
+
+});
 
 const messagesSchema = new mongoose.Schema({
     "productId": Number,
@@ -28,16 +51,17 @@ const sendMessage = (productId, sellerId, buyerId, senderId, content) => {
     });
 }
 
-const getAllMessage = (userId, callback) => {
+const getAllMessages = (userId, callback) => {
     mongoose.connect(keys.mongoURL);
 
     messages.find({
         $or: [{ sellerId: userId }, { buyerId: userId }]
-    }).then((result) => {
+    }).then((docs) => {
         // console.log(result);
 
         mongoose.connection.close();
-        callback(result);
+        callback(docs);
+        // return docs;
     });
 }
 
@@ -46,4 +70,4 @@ const getAllMessage = (userId, callback) => {
 // sendMessage(10, 3, 4, 4, "hellofrom 4")
 // getAllMessage(3);
 
-module.exports = { sendMessage, getAllMessage };
+module.exports = router;
