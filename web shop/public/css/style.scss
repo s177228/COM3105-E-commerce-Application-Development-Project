@@ -276,61 +276,76 @@ footer {
             li {
                 padding: 0.5rem;
                 border-bottom: solid 0.5px lightgray;
+                &:hover {
+                    border-bottom: solid 1.5px rebeccapurple;
+                    font-weight: bold;
+                }
             }
         }
     }
-    #inbox-room {
+    #inbox-rooms {
         background-color: lightgrey;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
         align-content: stretch;
-        header {
-            padding: 1rem;
-            font-weight: bold;
-            border-bottom: solid 0.5px rgba(187, 187, 187, 0.5);
-        }
-        ul {
+        .inbox-room {
             flex-grow: 1;
-            list-style: none;
             position: relative;
             overflow-y: auto;
-            display: flex;
+            display: none;
             flex-direction: column;
             flex-wrap: nowrap;
-            li {
-                margin: 1rem;
-                padding: 0.5rem 1rem;
-                border-radius: 1rem;
-                display: inline-block;
+            header {
+                padding: 1rem;
+                font-weight: bold;
+                border-bottom: solid 0.5px rgba(187, 187, 187, 0.5);
             }
-            li span {
-                display: block;
+            ul {
+                flex-grow: 1;
+                list-style: none;
+                position: relative;
+                overflow-y: auto;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                li {
+                    margin: 1rem;
+                    padding: 0.5rem 1rem;
+                    border-radius: 1rem;
+                    display: inline-block;
+                }
+                li span {
+                    display: block;
+                }
+                li .line-dateTime {
+                    text-align: right;
+                }
+                .received-line {
+                    margin-right: auto;
+                    background-color: lightslategrey;
+                }
+                .sent-line {
+                    margin-left: auto;
+                    background-color: lightgreen;
+                }
             }
-            li .line-dateTime {
-                text-align: right;
-            }
-            .received-line {
-                margin-right: auto;
-                background-color: lightslategrey;
-            }
-            .sent-line {
-                margin-left: auto;
-                background-color: lightgreen;
+            form {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                * {
+                    height: 3rem;
+                }
+                input[type="text"] {
+                    flex-grow: 1;
+                }
             }
         }
-        form {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            * {
-                height: 3rem;
-            }
-            input[type="text"] {
-                flex-grow: 1;
-            }
+        .visible-room {
+            display: flex !important;
         }
     }
 }

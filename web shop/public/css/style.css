@@ -413,7 +413,12 @@ footer {
   border-bottom: solid 0.5px lightgray;
 }
 
-#inbox-div #inbox-room {
+#inbox-div #inbox-menu ul li:hover {
+  border-bottom: solid 1.5px rebeccapurple;
+  font-weight: bold;
+}
+
+#inbox-div #inbox-rooms {
   background-color: lightgrey;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -431,13 +436,28 @@ footer {
       align-content: stretch;
 }
 
-#inbox-div #inbox-room header {
+#inbox-div #inbox-rooms .inbox-room {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  position: relative;
+  overflow-y: auto;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+#inbox-div #inbox-rooms .inbox-room header {
   padding: 1rem;
   font-weight: bold;
   border-bottom: solid 0.5px rgba(187, 187, 187, 0.5);
 }
 
-#inbox-div #inbox-room ul {
+#inbox-div #inbox-rooms .inbox-room ul {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -455,32 +475,32 @@ footer {
       flex-wrap: nowrap;
 }
 
-#inbox-div #inbox-room ul li {
+#inbox-div #inbox-rooms .inbox-room ul li {
   margin: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   display: inline-block;
 }
 
-#inbox-div #inbox-room ul li span {
+#inbox-div #inbox-rooms .inbox-room ul li span {
   display: block;
 }
 
-#inbox-div #inbox-room ul li .line-dateTime {
+#inbox-div #inbox-rooms .inbox-room ul li .line-dateTime {
   text-align: right;
 }
 
-#inbox-div #inbox-room ul .received-line {
+#inbox-div #inbox-rooms .inbox-room ul .received-line {
   margin-right: auto;
   background-color: lightslategrey;
 }
 
-#inbox-div #inbox-room ul .sent-line {
+#inbox-div #inbox-rooms .inbox-room ul .sent-line {
   margin-left: auto;
   background-color: lightgreen;
 }
 
-#inbox-div #inbox-room form {
+#inbox-div #inbox-rooms .inbox-room form {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -493,13 +513,19 @@ footer {
       flex-wrap: nowrap;
 }
 
-#inbox-div #inbox-room form * {
+#inbox-div #inbox-rooms .inbox-room form * {
   height: 3rem;
 }
 
-#inbox-div #inbox-room form input[type="text"] {
+#inbox-div #inbox-rooms .inbox-room form input[type="text"] {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+#inbox-div #inbox-rooms .visible-room {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
 }
 /*# sourceMappingURL=style.css.map */

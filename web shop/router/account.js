@@ -18,6 +18,10 @@ const accountsSchema = new mongoose.Schema({
 
 const accounts = mongoose.model('accounts', accountsSchema);
 
+router.route("/account/whoAmI").get((req, res) => {
+    res.send(req.signedCookies.id);
+});
+
 router.route("/account/login").post((req, res) => {
     mongoose.connect(mongoURL);
 

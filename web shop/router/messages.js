@@ -115,10 +115,13 @@ const getAllMessages = (userId, callback) => {
 // sendMessage(1, 1, 2, 1, "hello from 1");
 // sendMessage(1, 1, 2, 2, "hello from 2");
 // sendMessage(1, 1, 2, 1, "hello from 1");
-// sendMessage(11, 3, 4, 4, "10 hello from 4");
+// sendMessage(10, 3, 4, 4, "10 hello from 4");
 // sendMessage(10, 3, 4, 3, "10 hello from 3");
 // sendMessage(10, 3, 4, 3, "10 hello from 3");
 // sendMessage(10, 3, 4, 4, "10 hello from 4");
+// sendMessage(1, 1, 5, 1, "hello from 1");
+// sendMessage(1, 1, 5, 5, "hello from 5");
+// sendMessage(1, 1, 5, 1, "hello from 1");
 
 
 module.exports = router;
