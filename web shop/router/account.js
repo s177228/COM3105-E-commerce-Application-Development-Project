@@ -19,18 +19,6 @@ const accountsSchema = new mongoose.Schema({
 const accounts = mongoose.model('accounts', accountsSchema);
 
 router.route("/account/login").post((req, res) => {
-    // const db = low(adapter);
-    // if (db.get("account").find({ account: req.body.account }).value() == null) {
-    //   res.status(201).send({ msg: "account not exist!" });
-    // } else {
-    //   password = db.get("account").find({ account: req.body.account }).value()
-    //     .password;
-    //   if (!bcrypt.compareSync(req.body.password, password)) {
-    //     res.status(201).send({ msg: "password is incorrect!" });
-    //   } else {
-    //     res.status(200).send({ msg: "login!" });
-    //   }
-    // }
     mongoose.connect(mongoURL);
 
     const account = req.body.account;
@@ -50,11 +38,11 @@ router.route("/account/login").post((req, res) => {
                         if (!bcrypt.compareSync(password, docs.password)) {
                             res.status(201).send({ msg: "incorrect password" });
                         } else {
-                            // res.status(200).send({ msg: "login" });
                             res.cookie('id', docs.id, { signed: true });
                             res.cookie('account', account, { signed: true });
                             res.cookie('password', password, { signed: true });
-                            res.redirect('/');
+                            res.redirect(200, '/');
+                            // res.status(200).send({ msg: "login" });
                         }
                     }
                 });
@@ -81,7 +69,7 @@ router.route("/account/register").post((req, res) => {
                 res.status(201).send({ msg: "db error" });
             } else {
                 if (result) {
-                    console.log("account already exists");
+                    res.status(201).send({ msg: "account already exist" });
                 } else {
                     accounts.findOne({}).sort('-id').exec((err, docs) => {
                         if (err) {
@@ -96,12 +84,13 @@ router.route("/account/register").post((req, res) => {
                                 "password": password,
                                 "email": email
                             }, () => {
-                                // res.status(200).send({ msg: "account created" });
+
                                 mongoose.connection.close();
                                 res.cookie('id', id, { signed: true });
                                 res.cookie('account', account, { signed: true });
                                 res.cookie('password', password, { signed: true });
-                                res.redirect('/');
+                                // res.redirect(308, '/product');
+                                res.status(200).send({ msg: "account created" });
                             });
                         }
                     });

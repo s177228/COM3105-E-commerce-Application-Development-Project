@@ -35,9 +35,10 @@ app.use("/product", product)
 const item = require("./router/item");
 app.use("/api", item);
 // account
+app.use(cookieParser('123456789'));
 const account = require("./router/account");
 app.use("/api", account);
-app.use(cookieParser('123456789'));
+
 // message
 const messages = require("./router/messages");
 app.use("/api", messages);

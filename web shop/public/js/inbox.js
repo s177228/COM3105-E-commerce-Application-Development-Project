@@ -11,6 +11,7 @@ const loadAllMessages = () => {
         .then(res => { return res.json() })
         .then((res) => {
             // console.log(res[0].productId);
+            console.log(res);
 
             const chatrooms = new Map();
 
@@ -32,8 +33,9 @@ const loadAllMessages = () => {
 
                 chatroomMessages.set(chatroomMessages.size, chatroomMessage);
             });
+            console.log(chatrooms);
 
-            chatrooms
+
 
 
 

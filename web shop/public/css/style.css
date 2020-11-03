@@ -91,7 +91,7 @@ nav .buttons button {
 }
 
 main {
-  font-family: 'Overpass', sans-serif;
+  font-family: 'Overpass', sans-serif;
 }
 
 main input[type=text],
@@ -252,6 +252,7 @@ main #products-section {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  min-height: 50vh;
 }
 
 main #products-section .product-cell {

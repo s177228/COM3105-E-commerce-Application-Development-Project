@@ -69,16 +69,17 @@ nav {
 
 main {
     input[type=text],
-    input[type=password]{
+    input[type=password] {
         height: 2em;
         font-size: 16px;
     }
     input[type=submit],
-    input[type=button]{
+    input[type=button] {
         height: 2em;
         font-size: 16px;
     }
-    font-family: 'Overpass', sans-serif;
+    font-family: 'Overpass',
+    sans-serif;
     section {
         padding: 3rem 5%;
     }
@@ -118,9 +119,9 @@ main {
             flex-direction: column;
             align-items: flex-end;
             justify-content: space-between;
-            .form-top{
+            .form-top {
                 text-align: center;
-                .form-msg{
+                .form-msg {
                     margin: auto;
                 }
             }
@@ -168,6 +169,7 @@ main {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        min-height: 50vh;
         .product-cell {
             border: 1px solid gray;
             text-align: center;

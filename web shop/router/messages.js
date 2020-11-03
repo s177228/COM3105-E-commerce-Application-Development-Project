@@ -4,26 +4,30 @@ const keys = require('./keys');
 const express = require('express');
 const router = express.Router();
 
-// router.route("/messages/sendMessage").post((req, res) => {
+// router.route("/messages/sendMessage").get((req, res) => {
 //     if (req.signedCookies.id && req.signedCookies.account && req.signedCookies.password) {
 
 //     }
 // });
 
-// router.route("/messages/getAllMessage").post(
-//     (req, res) => {
-//         if (req.signedCookies.id && req.signedCookies.account && req.signedCookies.password) {
-//             const id = req.signedCookies.id;
-//             res.send.getAllMessage(id);
-//         }
-//     }
-// );
+// router.route("/messages/getAllMessage").get((req, res) => {
+//     getAllMessages(1, (docs) => {
+//         res.send(docs);
+//     });
+// });
+
 router.route("/messages/getAllMessage").get((req, res) => {
-    getAllMessages(1, (docs) => {
-        res.send(docs);
-    });
+    console.log(req.signedCookies.id);
+    if (req.signedCookies.id != null && req.signedCookies.account != null && req.signedCookies.password != null) {
+        getAllMessages(req.signedCookies.id, (docs) => {
+            // console.log("fetching");
+            console.log(docs);
+            res.send(docs);
+        });
+    }
 
 });
+
 
 const messagesSchema = new mongoose.Schema({
     "productId": Number,
