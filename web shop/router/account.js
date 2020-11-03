@@ -2,12 +2,9 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
-const low = require("lowdb");
-const FileSync = require("lowdb/adapters/FileSync");
-const adapter = new FileSync("./router/data/db.json");
 
 const mongoose = require('mongoose');
-const keys = require('./keys');
+const mongoURL = `${process.env.mongoURL}`;
 
 const accountsSchema = new mongoose.Schema({
     "id": Number,
@@ -33,7 +30,7 @@ router.route("/account/login").post((req, res) => {
     //     res.status(200).send({ msg: "login!" });
     //   }
     // }
-    mongoose.connect(keys.mongoURL);
+    mongoose.connect(mongoURL);
 
     const account = req.body.account;
     const password = req.body.password;
