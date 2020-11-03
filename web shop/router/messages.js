@@ -30,11 +30,12 @@ router.route("/messages/getAllMessage").get((req, res) => {
 
 
 const messagesSchema = new mongoose.Schema({
+    "chatroomId": Number,
     "productId": Number,
     "sellerId": Number,
     "buyerId": Number,
     "senderId": Number,
-    "content": String,
+    "content": String
 }, {
     timestamps: true
 });
@@ -44,16 +45,58 @@ const messages = mongoose.model('messages', messagesSchema);
 const sendMessage = (productId, sellerId, buyerId, senderId, content) => {
     mongoose.connect(keys.mongoURL);
 
-    messages.create({
-        "productId": productId,
-        "sellerId": sellerId,
-        "buyerId": buyerId,
-        "senderId": senderId,
-        "content": content,
-    }, () => {
-        mongoose.connection.close();
+    let chatroomId = 0;
+
+    messages.exists({ $and: [{ productId: productId }, { sellerId: sellerId }, { buyerId: buyerId }] }, (err, res) => {
+        if (err) {
+            res.status(201).send({ msg: "db error" });
+        } else {
+            if (!res) {
+                messages.findOne({}).sort('-chatroomId').exec((err, docs) => {
+                    if (err) {
+                        res.status(201).send({ msg: "id incurement error" });
+                    } else {
+                        if (docs != null) {
+                            chatroomId = docs.chatroomId + 1;
+                        }
+                        messages.create({
+                            "chatroomId": chatroomId,
+                            "productId": productId,
+                            "sellerId": sellerId,
+                            "buyerId": buyerId,
+                            "senderId": senderId,
+                            "content": content,
+                        }, () => {
+                            mongoose.connection.close();
+                        });
+                    }
+                });
+            } else {
+                messages.findOne({ $and: [{ productId: productId }, { sellerId: sellerId }, { buyerId: buyerId }] }, (err, res) => {
+                    if (err) {
+                        res.status(201).send({ msg: "id incurement error" });
+                    } else {
+                        chatroomId = res.chatroomId;
+                        messages.create({
+                            "chatroomId": chatroomId,
+                            "productId": productId,
+                            "sellerId": sellerId,
+                            "buyerId": buyerId,
+                            "senderId": senderId,
+                            "content": content,
+                        }, () => {
+                            mongoose.connection.close();
+                        });
+                    }
+                });
+            }
+
+        }
     });
-}
+
+
+
+};
 
 const getAllMessages = (userId, callback) => {
     mongoose.connect(keys.mongoURL);
@@ -69,9 +112,13 @@ const getAllMessages = (userId, callback) => {
     });
 }
 
-// sendMessage(10, 1, 2, 1, "hello from 1")
-// sendMessage(10, 1, 2, 2, "hello from 2")
-// sendMessage(10, 3, 4, 4, "hellofrom 4")
-// getAllMessage(3);
+// sendMessage(1, 1, 2, 1, "hello from 1");
+// sendMessage(1, 1, 2, 2, "hello from 2");
+// sendMessage(1, 1, 2, 1, "hello from 1");
+// sendMessage(11, 3, 4, 4, "10 hello from 4");
+// sendMessage(10, 3, 4, 3, "10 hello from 3");
+// sendMessage(10, 3, 4, 3, "10 hello from 3");
+// sendMessage(10, 3, 4, 4, "10 hello from 4");
+
 
 module.exports = router;

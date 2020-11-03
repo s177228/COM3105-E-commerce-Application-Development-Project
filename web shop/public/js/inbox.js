@@ -3,6 +3,7 @@ window.addEventListener("DOMContentLoaded", (evt) => {
 });
 
 
+
 const loadAllMessages = () => {
     const inboxMenuList = document.querySelector("#inbox-menu ul");
     const inboxRoomList = document.querySelector("#inbox-room ul");
@@ -30,10 +31,15 @@ const loadAllMessages = () => {
                 chatroomMessage.set("content", message.content);
                 chatroomMessage.set("time", message.createdAt);
 
-
                 chatroomMessages.set(chatroomMessages.size, chatroomMessage);
             });
-            console.log(chatrooms);
+
+            //print the chatroom
+            chatrooms.forEach(chatroom => {
+                inboxMenuList.innerHTML = ""
+
+            });
+
 
 
 
