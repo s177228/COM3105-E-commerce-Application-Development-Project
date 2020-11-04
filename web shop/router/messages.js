@@ -44,6 +44,7 @@ router.route("/messages/sendMessage").post((req, res) => {
             res.status(201).send({ msg: "it seems you are a hacker" });
         } else {
             sendMessage(productId, sellerId, buyerId, senderId, content, res);
+            res.status(200).send({ msg: "message sent" });
         }
 
 

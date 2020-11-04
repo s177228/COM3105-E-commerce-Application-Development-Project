@@ -5,6 +5,12 @@ require('dotenv').config();
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser')
 
+
+
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
+
+
 // view engine
 app.set("view engine", "ejs");
 //middle ware
@@ -41,6 +47,7 @@ app.use("/api", account);
 
 // message
 const messages = require("./router/messages");
+const { Socket } = require("dgram");
 app.use("/api", messages);
 
 
@@ -53,3 +60,13 @@ app.get("/test", (req, res) => {
 app.listen(port, function() {
     console.log("Express app started on " + port);
 });
+
+//socket.io
+io.on('connection', (socket) => {
+    socket.on("sent", () => {
+        console.log("someone sent something");
+        io.emit("refresh", "refresh");
+    });
+});
+
+server.listen(3001);
