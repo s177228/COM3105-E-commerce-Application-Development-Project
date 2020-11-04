@@ -528,4 +528,8 @@ footer {
   display: -ms-flexbox !important;
   display: flex !important;
 }
+
+.visible-inbox-div {
+  visibility: visible !important;
+}
 /*# sourceMappingURL=style.css.map */

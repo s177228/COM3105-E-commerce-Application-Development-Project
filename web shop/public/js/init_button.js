@@ -11,6 +11,8 @@ const init_button = () => {
     const register_ui_btn = document.querySelector("#register-ui-btn");
     const login_ui_btn = document.querySelector("#login-ui-btn");
 
+
+
     logo.addEventListener("click", () => {
         document.location.href = "/";
     });
@@ -118,12 +120,21 @@ const change_login = () => {
         "hidden";
 };
 
+
+
 const change_inbox = () => {
-    document.getElementById("inbox-div").style.visibility =
-        getComputedStyle(document.getElementById("inbox-div")).visibility ==
-        "hidden" ?
-        "visible" :
-        "hidden";
+    // document.getElementById("inbox-div").style.visibility =
+    //     getComputedStyle(document.getElementById("inbox-div")).visibility ==
+    //     "hidden" ?
+    //     "visible" :
+    //     "hidden";
+    const inboxDiv = document.getElementById("inbox-div");
+    if (inboxDiv.classList.contains("visible-inbox-div")) {
+        inboxDiv.classList.remove("visible-inbox-div");
+    } else {
+        inboxDiv.classList.add("visible-inbox-div");
+    }
+    // updateRoomStatus();
 };
 
 const change_login_register = () => {
