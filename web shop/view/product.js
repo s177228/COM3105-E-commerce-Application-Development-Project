@@ -1,22 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const low = require("lowdb");
-const FileSync = require("lowdb/adapters/FileSync");
-const adapter = new FileSync("./router/data/db.json");
+const fetch = require("node-fetch");
 
 router.get("/pid/:pid", (req, res) => {
-  const db = low(adapter);
-  console.log(db
-    .get("items")
-    .find({ id: parseInt(req.params.pid) })
-    .value());
-  res.render(
-    __dirname + "/ejs/view_product",
-    db
-      .get("items")
-      .find({ id: parseInt(req.params.pid) })
-      .value()
-  );
+  fetch(`http://localhost:3000/api/item/${req.params.pid}`)
+    .then((data) => data.text())
+    .then((body) => {
+      res.render(__dirname + "/ejs/view_product", { data: JSON.parse(body) });
+    });
 });
 
 module.exports = router;

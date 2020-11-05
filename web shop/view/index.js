@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const low = require("lowdb");
-const FileSync = require("lowdb/adapters/FileSync");
-const adapter = new FileSync("./router/data/db.json");
+const fetch = require("node-fetch");
 
 router.get("/", (req, res) => {
-  const db = low(adapter);
-  res.render(__dirname + "/ejs/view_index", { data: db.get("items").value() });
+  fetch(`http://localhost:3000/api/items/all`)
+    .then((data) => data.text())
+    .then((body) => {
+      res.render(__dirname + "/ejs/view_index", { data: JSON.parse(body) });
+    });
 });
 
 module.exports = router;

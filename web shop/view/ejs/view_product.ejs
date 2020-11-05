@@ -22,14 +22,14 @@
     <main>
         <section id="product-section">
             <div class="product-cell">
-                <h3 class="product-name"><%= name %></h3>
-                <img class="product-img" src="/api/image/<%= img %>"></img>
+                <h3 class="product-name"><%= data[0].length %></h3>
+                <img class="product-img" src="/api/image/<%= data[0].img %>"></img>
                 <div class="product-card">
-                    <p class="product-price"><%= price %></p>
+                    <p class="product-price"><%= data[0].price %></p>
                     <br>
-                    <p class="product-desc"><%= desc %></p>
+                    <p class="product-desc"><%= data[0].desc %></p>
                     <br>
-                    <p class="product-detail"><%= detail %></p>
+                    <p class="product-detail"><%= data[0].detail %></p>
                 </div>
             </div>
         </section>

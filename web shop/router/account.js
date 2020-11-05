@@ -5,7 +5,6 @@ const saltRounds = 10;
 
 
 const mongoose = require('mongoose');
-const mongoURL = `${process.env.mongoURL}`;
 
 const accountsSchema = new mongoose.Schema({
     "id": Number,
@@ -23,7 +22,7 @@ router.route("/account/whoAmI").get((req, res) => {
 });
 
 router.route("/account/login").post((req, res) => {
-    mongoose.connect(mongoURL);
+    mongoose.connect(process.env.mongoURL);
 
     const account = req.body.account;
     const password = req.body.password;
@@ -56,6 +55,8 @@ router.route("/account/login").post((req, res) => {
 });
 
 router.route("/account/register").post((req, res) => {
+    mongoose.connect(process.env.mongoURL);
+
     const account = req.body.account;
     const password = bcrypt.hashSync(req.body.password, saltRounds);
     const email = req.body.email;

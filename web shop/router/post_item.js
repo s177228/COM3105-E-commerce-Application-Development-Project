@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const fs = require("fs");
-const low = require("lowdb");
-const FileSync = require("lowdb/adapters/FileSync");
-const adapter = new FileSync("./router/data/db.json");
+const mongoose = require("mongoose");
+
+const products = mongoose.model("products");
 
 var upload_error = false;
 // setting the multer for upload image and handle ext
@@ -31,6 +31,8 @@ const upload = multer({
 
 // api POST method (post single item) - /api/item/
 router.post("/", upload.single("fileToUpload"), (req, res) => {
+  mongoose.connect(process.env.mongoURL);
+
   data = JSON.parse(JSON.stringify(req.body, null, 2));
   console.log(data, req.file);
   if (req.file == null || upload_error) {
@@ -49,37 +51,43 @@ router.post("/", upload.single("fileToUpload"), (req, res) => {
     ) {
       res.status(201).send({ msg: "some slot are empty!" });
     } else {
-      const db = low(adapter);
-      // Add find max id + 1 function on db
-      db._.mixin({
-        new_id: function (array) {
-          id = 0;
-          array.forEach((element) => {
-            id < element.id ? (id = element.id) : null;
-          });
-          return id + 1;
-        },
-      });
-      fs.rename(
-        `./router/data/image/${req.file.filename}`,
-        `./router/data/image/POST${db.get("items").new_id().value()}-${
-          req.file.filename
-        }`,
-        (err) => console.log(err)
-      );
-      db.get("items")
-        .push({
-          id: db.get("items").new_id().value(),
-          sellerId: req.body.sellerId,
-          name: req.body.name,
-          price: req.body.price,
-          img: `POST${db.get("items").new_id().value()}-${req.file.filename}`,
-          desc: req.body.desc,
-          detail: req.body.detail,
-          buyerId: null,
-        })
-        .write();
-      res.status(200).send({ msg: "posted!" });
+      products.findOne({}).sort('-pid').exec((err, docs) => {
+        if (err) {
+            res.status(201).send({ msg: "id incurement error" });
+        } else {
+            if (docs != null) {
+                id = docs.pid + 1;
+            } else{
+              id = 1;
+            }
+
+            fs.rename(
+              `./router/data/image/${req.file.filename}`,
+              `./router/data/image/POST${id}-${
+                req.file.filename
+              }`,
+              (err) => console.log(err)
+            );
+
+            products.create(
+              {
+                pid: id,
+                sellerId: req.body.sellerId,
+                name: req.body.name,
+                price: req.body.price,
+                img: `POST${id}-${req.file.filename}`,
+                desc: req.body.desc,
+                detail: req.body.detail,
+                buyerId: null,
+              },
+              () => {
+                res.status(200).send({ msg: "posted!" });
+              }
+            );
+        }
+    });
+
+      
     }
   }
 });

@@ -9,15 +9,15 @@ const fetch_items = () => {
             return res.json();
         })
         .then((res) => {
-            items = res.body;
+            items = res;
             if (items != null) {
                 items.forEach((element) => {
                     document
-                        .querySelector(`#product${element.id}`)
+                        .querySelector(`#product${element.pid}`)
                         .addEventListener("click", function(event) {
                             // prevent fir when click cart-btn
                             if (!(event.target.tagName == "BUTTON" || event.target.tagName == "I")) {
-                                click(element.id);
+                                click(element.pid);
                             }
                         });
                 });

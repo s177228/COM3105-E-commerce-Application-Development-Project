@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const { send } = require('process');
-const keys = require('./keys');
 const express = require('express');
 const router = express.Router();
 
@@ -78,7 +77,7 @@ const messagesSchema = new mongoose.Schema({
 const messages = mongoose.model('messages', messagesSchema);
 
 const sendMessage = (productId, sellerId, buyerId, senderId, content, res) => {
-    mongoose.connect(keys.mongoURL);
+    mongoose.connect(process.env.mongoURL);
 
     let chatroomId = 0;
 
@@ -130,7 +129,7 @@ const sendMessage = (productId, sellerId, buyerId, senderId, content, res) => {
 };
 
 const getAllMessages = (userId, callback) => {
-    mongoose.connect(keys.mongoURL);
+    mongoose.connect(process.env.mongoURL);
 
     messages.find({
         $or: [{ sellerId: userId }, { buyerId: userId }]
