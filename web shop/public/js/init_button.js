@@ -1,5 +1,6 @@
 window.addEventListener("DOMContentLoaded", (evt) => {
     init_button();
+    hideOrShow();
 });
 
 const init_button = () => {
@@ -10,8 +11,6 @@ const init_button = () => {
     const inbox_btn = document.querySelector("#inbox-btn");
     const register_ui_btn = document.querySelector("#register-ui-btn");
     const login_ui_btn = document.querySelector("#login-ui-btn");
-
-
 
     logo.addEventListener("click", () => {
         document.location.href = "/";
@@ -112,6 +111,24 @@ const init_button = () => {
     });
 };
 
+const hideOrShow = () => {
+    const login_button = document.getElementById("login-btn");
+    const inbox_btn = document.querySelector("#inbox-btn");
+    const sell_btn = document.querySelector("#sell-btn");
+
+    fetch("/api/account/whoAmI")
+        .then(res => {
+            return res.json();
+        }).then(res => {
+            if (res === false) {
+                //not logined
+                inbox_btn.parentNode.removeChild(inbox_btn);
+            } else {
+                login_button.parentNode.removeChild(login_button);
+            }
+        });
+}
+
 const change_login = () => {
     document.getElementById("login-interface").style.visibility =
         getComputedStyle(document.getElementById("login-interface")).visibility ==
@@ -119,8 +136,6 @@ const change_login = () => {
         "visible" :
         "hidden";
 };
-
-
 
 const change_inbox = () => {
     // document.getElementById("inbox-div").style.visibility =

@@ -252,7 +252,7 @@ main #products-section {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  min-height: 50vh;
+  min-height: 40vh;
 }
 
 main #products-section .product-cell {
@@ -350,6 +350,11 @@ main #product-section .product-cell .product-card {
 
 main #product-section .product-cell .product-card * {
   margin-bottom: 0.5rem;
+}
+
+main #product-section .product-cell .message-btn {
+  width: 100%;
+  font-size: 3rem;
 }
 
 footer {

@@ -169,7 +169,7 @@ main {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        min-height: 50vh;
+        min-height: 40vh;
         .product-cell {
             border: 1px solid gray;
             text-align: center;
@@ -236,6 +236,10 @@ main {
                 * {
                     margin-bottom: 0.5rem;
                 }
+            }
+            .message-btn {
+                width: 100%;
+                font-size: 3rem;
             }
         }
     }
