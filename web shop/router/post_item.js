@@ -6,6 +6,12 @@ const mongoose = require("mongoose");
 
 const products = mongoose.model("products");
 
+var dir = './router/data/image/';
+
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+}
+
 var upload_error = false;
 // setting the multer for upload image and handle ext
 const upload = multer({

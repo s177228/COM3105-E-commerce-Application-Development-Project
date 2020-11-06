@@ -14,13 +14,6 @@ app.set("view engine", "ejs");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// database (lowdb)
-const low = require("lowdb");
-const FileSync = require("lowdb/adapters/FileSync");
-const adapter = new FileSync("./router/data/db.json");
-const db = low(adapter);
-db.defaults({ items: [], account: [], chat: [] }).write();
-
 // public view
 // define the home page route
 app.use(express.static(__dirname + "/public"));
