@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", (evt) => {
     });
 });
 
-
+var current_room = null;
 
 const loadAllMessages = () => {
     const inboxMenuList = document.querySelector("#inbox-menu ul");
@@ -56,6 +56,8 @@ const loadAllMessages = () => {
                         inboxMenuList.innerHTML = "";
                         inboxRoomList.innerHTML = "";
 
+
+                        console.log(chatrooms);
                         chatrooms.forEach(chatroom => {
                             const productId = chatroom.get(0).get("productId");
                             const chatroomId = chatroom.get(0).get("chatroomId");
@@ -165,6 +167,7 @@ const loadAllMessages = () => {
                             span.appendChild(spanText);
                             span.classList.add("inbox-title");
                             li.appendChild(span);
+                            li.id = `menu${chatroomId}`;
                             inboxMenuList.appendChild(li);
 
                             li.addEventListener("click", (event) => {
@@ -173,7 +176,16 @@ const loadAllMessages = () => {
                                     room.classList.remove("visible-room");
                                 });
                                 document.querySelector(`#room${chatroomId}`).classList.add("visible-room");
+                                document.querySelector(`#room${chatroomId}`).querySelector("ul").scrollTo(0,10000);
+                                current_room = chatroomId;
                             });
+
+                            if(current_room != null){
+                                console.log(current_room);
+                                setTimeout(()=>{
+                                    document.querySelector(`#menu${current_room}`).click();
+                                },10);
+                            }
                             // inboxMenuList.innerHTML = `
                             //     <li>
                             //         <span class="inbox-title">${}</span>

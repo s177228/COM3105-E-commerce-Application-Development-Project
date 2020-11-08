@@ -25,6 +25,13 @@ router.route("/account/whoAmI").get((req, res) => {
     }
 });
 
+router.route("/account/logout").get((req,res)=>{
+    res.clearCookie("id");
+    res.clearCookie("account");
+    res.clearCookie("password");
+    res.redirect(200, '/');
+})
+
 router.route("/account/login").post((req, res) => {
     mongoose.connect(process.env.mongoURL);
 

@@ -91,7 +91,7 @@ nav .buttons button {
 }
 
 main {
-  font-family: 'Overpass', sans-serif;
+  font-family: 'Overpass', sans-serif;
 }
 
 main input[type=text],
@@ -111,7 +111,7 @@ main section {
 }
 
 main .dummy-ad {
-  height: 20rem;
+  height: 12rem;
   width: 100%;
   background-color: darkkhaki;
   display: -webkit-box;
