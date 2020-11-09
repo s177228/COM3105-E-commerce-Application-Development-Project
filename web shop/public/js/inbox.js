@@ -1,6 +1,5 @@
 window.addEventListener("DOMContentLoaded", (evt) => {
     loadAllMessages();
-    socket = io.connect('http://localhost:3001');
     socket.on("refresh", () => {
         loadAllMessages();
         console.log("refresh");
@@ -100,7 +99,6 @@ const loadAllMessages = () => {
                                         content: input.value
                                     })
                                 }).then(() => {
-                                    socket = io.connect('http://localhost:3001');
                                     socket.emit("sent", "sent");
                                 });
 

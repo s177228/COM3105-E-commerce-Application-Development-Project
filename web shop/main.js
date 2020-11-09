@@ -4,9 +4,8 @@ const port = 3000;
 require("dotenv").config();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-
-const server = require("http").Server(app);
-const io = require("socket.io")(server);
+var http = require("http").createServer(app);
+var io = require("socket.io")(http);
 
 // view engine
 app.set("view engine", "ejs");
@@ -43,11 +42,6 @@ app.get("/test", (req, res) => {
   res.sendFile(__dirname + "/public/test.html");
 });
 
-// app listening on port
-app.listen(port, function () {
-  console.log("Express app started on " + port);
-});
-
 //socket.io
 io.on("connection", (socket) => {
   socket.on("sent", () => {
@@ -58,4 +52,7 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3001);
+// http listening on port
+http.listen(port, () => {
+  console.log(`server listening at http://localhost:${port}`);
+});
