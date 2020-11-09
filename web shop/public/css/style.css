@@ -90,8 +90,14 @@ nav .buttons button {
   margin-bottom: 2px;
 }
 
+nav .buttons span {
+  display: inline-block;
+  margin-bottom: 2px;
+  font-size: 2rem;
+}
+
 main {
-  font-family: 'Overpass', sans-serif;
+  font-family: 'Overpass', sans-serif;
 }
 
 main input[type=text],

@@ -25,7 +25,15 @@ router.route("/account/whoAmI").get((req, res) => {
     }
 });
 
-router.route("/account/logout").get((req,res)=>{
+router.route("/account/myAccount").get((req, res) => {
+    if (req.signedCookies.account == null) {
+        res.send("false");
+    } else {
+        res.send({ "account": req.signedCookies.account });
+    }
+});
+
+router.route("/account/logout").get((req, res) => {
     res.clearCookie("id");
     res.clearCookie("account");
     res.clearCookie("password");
