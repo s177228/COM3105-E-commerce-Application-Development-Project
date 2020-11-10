@@ -42,25 +42,25 @@ const { Socket } = require("dgram");
 app.use("/api", messages);
 
 app.get("/test", (req, res) => {
-  res.sendFile(__dirname + "/public/test.html");
+    res.sendFile(__dirname + "/public/test.html");
 });
 
 //socket.io
 io.on("connection", (socket) => {
-  console.log("some one is connected")
-  socket.on("message", (message)=>{
-    console.log(message);
-  });
+    console.log("some one is connected")
+    socket.on("message", (message) => {
+        console.log(message);
+    });
 
-  socket.on("sent", () => {
-    console.log("someone sent something");
-    setTimeout(() => {
-      io.emit("refresh", "refresh");
-    }, 100);
-  });
+    socket.on("sent", () => {
+        console.log("someone sent something");
+        setTimeout(() => {
+            io.emit("refresh", "refresh");
+        }, 100);
+    });
 });
 
 // http listening on port
 http.listen(port, () => {
-  console.log(`server listening at http://localhost:${port}`);
+    console.log(`server listening at http://localhost:${port}`);
 });
