@@ -192,6 +192,14 @@ const getAllMessages = (userId, callback) => {
           as: "buyerName",
         },
       },
+      {
+        $lookup: {
+          from: "products",
+          localField: "productId",
+          foreignField: "pid",
+          as: "productName",
+        },
+      },
     ],
     (err, docs) => {
       // console.log(docs);

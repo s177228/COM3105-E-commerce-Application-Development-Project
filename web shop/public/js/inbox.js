@@ -47,6 +47,7 @@ const loadAllMessages = () => {
 
               chatroomMessage.set("chatroomId", message.chatroomId);
               chatroomMessage.set("productId", message.productId);
+              chatroomMessage.set("productName", message.productName[0].name);
               chatroomMessage.set("senderId", message.senderId);
               chatroomMessage.set("sellerId", message.sellerId);
               chatroomMessage.set("sellerName", message.sellerName[0].account);
@@ -75,19 +76,16 @@ const loadAllMessages = () => {
               let header = document.createElement("header");
               let opponentId = sellerId;
               let opponentName = chatroom.get(0).get("sellerName");
+              let productName = chatroom.get(0).get("productName");
               console.log(chatroom.get(0));
               if (userId == sellerId) {
                 opponentId = buyerId;
                 opponentName = chatroom.get(0).get("buyerName");
               }
               let headerText = document.createTextNode(
-                "product: " +
-                  productId +
-                  " | " +
-                  opponentName +
-                  " | id: " +
-                  opponentId
+                `Product: ${productName} | Chat: ${opponentName} | (dev: pid: ${productId} | id: ${opponentId})`
               );
+
               let ul = document.createElement("ul");
               let form = document.createElement("form");
               let input = document.createElement("input");
@@ -182,7 +180,7 @@ const loadAllMessages = () => {
               let li = document.createElement("li");
               let span = document.createElement("span");
               let spanText = document.createTextNode(
-                "product: " + productId + " | " + opponentName
+                `Product: ${productName} | ${opponentName}`
               );
               span.appendChild(spanText);
               span.classList.add("inbox-title");
