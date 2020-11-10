@@ -93,17 +93,23 @@
         <section id="products-section">
             <% for(var i=0; i<data.length; i++) {%>
             <div class="product-cell" id="product<%= data[i].pid%>">
-                <%= data[i].sellerName[0].account%>
+                
+                <div class="product-img">
+                    <img src="/api/image/<%= data[i].img%>"></img>
+                </div>
                 <h3 class="product-name">
                     <%= data[i].name%>
                 </h3>
-                <img class="product-img" src="/api/image/<%= data[i].img%>"></img>
                 <p class="product-price">HK$
                     <%= data[i].price%>
                 </p>
                 <p class="product-desc">
                     <%= data[i].desc%>
                 </p>
+                <p class="product-user">
+                    <i class='fas fa-user'></i> <%= data[i].sellerName[0].account%>
+                </p>
+                
                 <!-- <button onclick="buy(<%= data[i].id%>)" class="btn btn-success product-cart-btn"><i
                         class='fas fa-shopping-cart'></i> Buy Now</button> -->
             </div>

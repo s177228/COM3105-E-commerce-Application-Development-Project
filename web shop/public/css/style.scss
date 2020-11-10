@@ -164,29 +164,40 @@ main {
         justify-content: center;
         min-height: 40vh;
         .product-cell {
-            border: 1px solid gray;
-            text-align: center;
+            border-radius: 15px;
+            border: 1px solid rgb(201, 201, 201);
+            text-align: left;
             margin: 1rem;
             cursor: pointer;
             .product-name {
-                padding: 0.2rem;
+                text-align: center;
+                background-color: rgb(159, 240, 236);
+                font-weight: 900;
+            }
+            .product-user{
+                text-align: center;
+                background-color: aliceblue;
+                border-radius: 15px;
             }
             .product-img {
-                width: 40rem;
-                height: 40rem;
+                width: 37rem;
+                height: 37rem;
                 overflow: hidden;
                 margin: 1.5rem;
                 border-radius: 5px;
+                vertical-align: middle;
+                img{
+                    width: 37rem;
+                    margin: auto;
+                    
+                }
             }
             .product-price {
-                text-align: left;
-                margin-left: 2vw;
                 font-size: 2vw;
+                font-weight: 900;
             }
             .product-desc {
-                text-align: left;
-                margin-left: 2vw;
-                font-size: 1.75vw;
+                font-size: 1.5vw;
             }
             .product-cart-btn {
                 background-color: aquamarine;

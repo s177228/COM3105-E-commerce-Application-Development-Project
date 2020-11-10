@@ -241,34 +241,46 @@ main #products-section {
 }
 
 main #products-section .product-cell {
-  border: 1px solid gray;
-  text-align: center;
+  border-radius: 15px;
+  border: 1px solid #c9c9c9;
+  text-align: left;
   margin: 1rem;
   cursor: pointer;
 }
 
 main #products-section .product-cell .product-name {
-  padding: 0.2rem;
+  text-align: center;
+  background-color: #9ff0ec;
+  font-weight: 900;
+}
+
+main #products-section .product-cell .product-user {
+  text-align: center;
+  background-color: aliceblue;
+  border-radius: 15px;
 }
 
 main #products-section .product-cell .product-img {
-  width: 40rem;
-  height: 40rem;
+  width: 37rem;
+  height: 37rem;
   overflow: hidden;
   margin: 1.5rem;
   border-radius: 5px;
+  vertical-align: middle;
+}
+
+main #products-section .product-cell .product-img img {
+  width: 37rem;
+  margin: auto;
 }
 
 main #products-section .product-cell .product-price {
-  text-align: left;
-  margin-left: 2vw;
   font-size: 2vw;
+  font-weight: 900;
 }
 
 main #products-section .product-cell .product-desc {
-  text-align: left;
-  margin-left: 2vw;
-  font-size: 1.75vw;
+  font-size: 1.5vw;
 }
 
 main #products-section .product-cell .product-cart-btn {

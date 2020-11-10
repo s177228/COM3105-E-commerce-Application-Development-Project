@@ -20,6 +20,26 @@ const productsSchema = new mongoose.Schema(
 
 const products = mongoose.model("products", productsSchema);
 
+router.get("/items/manage", (req, res) => {
+  mongoose.connect(process.env.mongoURL);
+  products
+    .aggregate([
+      { $match: { sellerId: parseInt(req.signedCookies.id) } },
+      {
+        $lookup: {
+          from: "accounts",
+          localField: "buyerId",
+          foreignField: "id",
+          as: "buyerName",
+        },
+      },
+    ])
+    .then((docs) => {
+      res.send(docs);
+      mongoose.connection.close();
+    });
+});
+
 // api GET method (get all items) - /api/items/all
 router.get("/items/all", function (req, res) {
   mongoose.connect(process.env.mongoURL);
@@ -35,8 +55,8 @@ router.get("/items/all", function (req, res) {
       },
     ])
     .then((docs) => {
-        res.send(docs);
-        mongoose.connection.close();
+      res.send(docs);
+      mongoose.connection.close();
     });
 });
 

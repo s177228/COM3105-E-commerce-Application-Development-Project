@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 var http = require("http").createServer(app);
 var io = require("socket.io")(http);
 
+app.use(cookieParser("123456789"));
 // view engine
 app.set("view engine", "ejs");
 //middle ware
@@ -32,7 +33,6 @@ app.use("/upload_product", upload_product);
 const item = require("./router/item");
 app.use("/api", item);
 // account
-app.use(cookieParser("123456789"));
 const account = require("./router/account");
 app.use("/api", account);
 
