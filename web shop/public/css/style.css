@@ -97,7 +97,7 @@ nav .buttons span {
 }
 
 main {
-  font-family: 'Overpass', sans-serif;
+  font-family: 'Overpass', sans-serif;
 }
 
 main input[type=text],
@@ -114,27 +114,6 @@ main input[type=button] {
 
 main section {
   padding: 3rem 5%;
-}
-
-main .dummy-ad {
-  height: 12rem;
-  width: 100%;
-  background-color: darkkhaki;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-main .dummy-ad span {
-  color: lightgray;
-  text-transform: uppercase;
-  font-size: 7rem;
 }
 
 main .login-bg {

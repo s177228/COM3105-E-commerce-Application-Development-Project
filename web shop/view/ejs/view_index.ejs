@@ -25,7 +25,15 @@
 
 
     <main>
-        <section class="dummy-ad"><span>here is the ad</span></section>
+        <section class="dummy-ad">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- banner -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6585170858093764"
+                data-ad-slot="9861117964" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </section>
         <section id="login-interface" class="login-bg">
             <form id="login_form" action="" class="login-main">
                 <div class="form-section">
@@ -72,7 +80,8 @@
                 </div>
                 <div class="form-section">
                     <div class="form-section-group">
-                        <input type="submit" id="register_submit" class="btn btn-primary btn-lg btn-block" value="sign-up">
+                        <input type="submit" id="register_submit" class="btn btn-primary btn-lg btn-block"
+                            value="sign-up">
                     </div>
                     <div class="form-section-group">
                         <span id="login-ui-btn">Already a member? Sign-in here</span>
@@ -83,24 +92,24 @@
 
         <section id="products-section">
             <% for(var i=0; i<data.length; i++) {%>
-                <div class="product-cell" id="product<%= data[i].pid%>">
-                    <%= data[i].sellerName[0].account%>
-                    <h3 class="product-name">
-                        <%= data[i].name%>
-                    </h3>
-                    <img class="product-img" src="/api/image/<%= data[i].img%>"></img>
-                    <p class="product-price">HK$
-                        <%= data[i].price%>
-                    </p>
-                    <p class="product-desc">
-                        <%= data[i].desc%>
-                    </p>
-                    <!-- <button onclick="buy(<%= data[i].id%>)" class="btn btn-success product-cart-btn"><i
+            <div class="product-cell" id="product<%= data[i].pid%>">
+                <%= data[i].sellerName[0].account%>
+                <h3 class="product-name">
+                    <%= data[i].name%>
+                </h3>
+                <img class="product-img" src="/api/image/<%= data[i].img%>"></img>
+                <p class="product-price">HK$
+                    <%= data[i].price%>
+                </p>
+                <p class="product-desc">
+                    <%= data[i].desc%>
+                </p>
+                <!-- <button onclick="buy(<%= data[i].id%>)" class="btn btn-success product-cart-btn"><i
                         class='fas fa-shopping-cart'></i> Buy Now</button> -->
-                </div>
-                <% } %>
+            </div>
+            <% } %>
         </section>
-        <section class="dummy-ad"><span>here is the ad</span></section>
+        <section class="dummy-ad"></section>
     </main>
     <footer>
         <button id="inbox-btn"><i class="fas fa-comment-alt" style="font-size: 18px;"></i> Inbox</button>
@@ -143,7 +152,7 @@
             transport: ['websocket']
         });
 
-         socket.on('connect',function(){
+        socket.on('connect', function () {
             socket.emit('message', 'Hello server');
         });
     </script>
