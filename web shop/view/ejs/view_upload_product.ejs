@@ -114,8 +114,12 @@
 
     <script src='/socket.io/socket.io.js'></script>
     <script>
-        var socket = io(window.location.href.split("://")[1], {
+        var socket = io(window.location.href.split("://")[1].split("/")[0], {
             transport: ['websocket']
+        });
+
+         socket.on('connect',function(){
+            socket.emit('message', 'Hello server');
         });
     </script>
     <script src="/js/upload_product.js"></script>

@@ -194,7 +194,7 @@ const getAllMessages = (userId, callback) => {
       },
     ],
     (err, docs) => {
-      console.log(docs);
+      // console.log(docs);
 
       mongoose.connection.close();
       callback(docs);

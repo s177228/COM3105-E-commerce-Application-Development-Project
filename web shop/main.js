@@ -47,6 +47,11 @@ app.get("/test", (req, res) => {
 
 //socket.io
 io.on("connection", (socket) => {
+  console.log("some one is connected")
+  socket.on("message", (message)=>{
+    console.log(message);
+  });
+
   socket.on("sent", () => {
     console.log("someone sent something");
     setTimeout(() => {

@@ -184,6 +184,7 @@ const loadAllMessages = () => {
                                 });
                                 document.querySelector(`#room${chatroomId}`).classList.add("visible-room");
                                 document.querySelector(`#room${chatroomId}`).querySelector("ul").scrollTo(0, 10000);
+                                document.querySelector(`#room${chatroomId}input`).select();
                                 current_room = chatroomId;
                             });
 
@@ -193,6 +194,8 @@ const loadAllMessages = () => {
                                     document.querySelector(`#menu${current_room}`).click();
                                 }, 10);
                             }
+
+
                             // inboxMenuList.innerHTML = `
                             //     <li>
                             //         <span class="inbox-title">${}</span>

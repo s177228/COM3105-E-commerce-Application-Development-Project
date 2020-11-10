@@ -3,13 +3,14 @@ const router = express.Router();
 const multer = require("multer");
 const fs = require("fs");
 const mongoose = require("mongoose");
+var mkdirp = require('mkdirp');
 
 const products = mongoose.model("products");
 
 var dir = './router/data/image/';
 
 if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
+    mkdirp(dir);
 }
 
 var upload_error = false;
