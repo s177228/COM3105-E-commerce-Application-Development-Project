@@ -95,7 +95,7 @@ const loadAllMessages = () => {
                                 event.preventDefault();
                                 // console.log(`room${chatroomId}input`);
                                 // console.log(input.value);
-                                fetch("api/messages/sendMessage", {
+                                fetch("/api/messages/sendMessage", {
                                     method: "POST",
                                     headers: {
                                         "Content-Type": "application/json",

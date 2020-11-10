@@ -114,7 +114,7 @@
 
     <script src='/socket.io/socket.io.js'></script>
     <script>
-        var socket = io(window.location.href, {
+        var socket = io(window.location.href.split("://")[1], {
             transport: ['websocket']
         });
     </script>
