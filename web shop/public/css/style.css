@@ -162,7 +162,7 @@ main .login-bg .register-main {
   font-size: 1.8rem;
   background-color: white;
   width: 30rem;
-  height: 30rem;
+  height: 40rem;
   border-radius: 4px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -361,6 +361,40 @@ main #product-section .product-cell .product-card * {
 main #product-section .product-cell .message-btn {
   width: 100%;
   font-size: 3rem;
+}
+
+main #postForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main #postForm .formGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main #postForm .formGroup label {
+  font-size: 2rem;
+}
+
+main #postForm .formGroup input {
+  width: 25vw;
 }
 
 footer {

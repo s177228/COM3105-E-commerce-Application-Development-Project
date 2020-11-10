@@ -118,7 +118,7 @@ main {
             font-size: 1.8rem;
             background-color: white;
             width: 30rem;
-            height: 30rem;
+            height: 40rem;
             border-radius: 4px;
             display: flex;
             flex-direction: column;
@@ -245,6 +245,22 @@ main {
             .message-btn {
                 width: 100%;
                 font-size: 3rem;
+            }
+        }
+    }
+    #postForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .formGroup {
+            display: flex;
+            flex-direction: column;
+            label {
+                font-size: 2rem;
+            }
+            input {
+                width: 25vw;
             }
         }
     }

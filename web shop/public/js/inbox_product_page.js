@@ -12,7 +12,7 @@ const loadAllMessages = () => {
     const inboxMenuList = document.querySelector("#inbox-menu ul");
     const inboxRoomList = document.querySelector("#inbox-rooms");
 
-    fetch("/api/messages/getAllMessage")
+    fetch("../../api/messages/getAllMessage")
         .then(res => { return res.json() })
         .then((res) => {
             // console.log(res[0].productId);
@@ -21,7 +21,7 @@ const loadAllMessages = () => {
             const messagesResult = res;
 
             if (messagesResult != null) {
-                fetch("/api/account/whoAmI")
+                fetch("../../api/account/whoAmI")
                     .then(res => { return res.json() })
                     .then(res => {
                         const userId = res;
@@ -90,7 +90,7 @@ const loadAllMessages = () => {
                                 event.preventDefault();
                                 // console.log(`room${chatroomId}input`);
                                 // console.log(input.value);
-                                fetch("api/messages/sendMessage", {
+                                fetch("../../api/messages/sendMessage", {
                                     method: "POST",
                                     headers: {
                                         "Content-Type": "application/json",
@@ -233,7 +233,7 @@ const updateRoomStatus = () => {
     console.log(isRoomOpen);
     console.log(currentRoomId);
 
-    fetch("/api/messages/inboxStatus", {
+    fetch("../../api/messages/inboxStatus", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -246,7 +246,7 @@ const updateRoomStatus = () => {
 }
 
 const checkRoomStatus = (callback) => {
-    fetch("/api/messages/inboxStatus", {
+    fetch("../../api/messages/inboxStatus", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
