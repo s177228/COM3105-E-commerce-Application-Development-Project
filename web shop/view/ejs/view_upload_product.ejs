@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Cybersell -Sell</title>
+    <!-- ajax makes life easier -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="./">
+            <h1 id="logo">Cybersell</h1>
+        </a>
+        <div class="buttons">
+            <button id="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <main>
+        <form action="/" id="postForm">
+            <div class="formGroup">
+                <input type="hidden" id="sellerId" name="sellerId" value="1" ><br>
+            </div>
+            <div class="formGroup">
+                <label for="name">Item Name:</label>
+                <input type="text" id="name" name="name"><br>
+            </div>
+            <div class="formGroup">
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price"><br>
+            </div>
+            <div class="formGroup">
+                <label for="desc">Short Description:</label>
+                <input type="text" id="desc" name="desc"><br>
+            </div>
+            <div class="formGroup">
+                <label for="detail">Information Description:</label>
+                <textarea type="text" id="detail" name="detail"></textarea><br>
+            </div>
+            <div class="formGroup">
+                <label for="fileToUpload">Upload your product image:</label>
+                <input type="file" name="fileToUpload" id="fileToUpload"><br>
+            </div>
+            <div class="formGroup">
+                <input type="submit">
+            </div>
+        </form>
+    </main>
+
+
+    <footer>
+        <button id="inbox-btn"><i class="fas fa-comment-alt" style="font-size: 18px;"></i> Inbox</button>
+        <div id="inbox-div">
+            <div id="inbox-menu">
+                <ul>
+                    <li>
+                        <span class="inbox-title">it is about product 1</span>
+                    </li>
+                    <li>
+                        <span class="inbox-title">it is about product 2</span>
+                    </li>
+                </ul>
+            </div>
+            <div id="inbox-rooms">
+                <div class="inbox-room visible-room">
+                    <header>to product 1 owner</header>
+                    <ul>
+                        <li class="sent-line inbox-line">
+                            <span class="line-content">hi I want this</span>
+                            <span class="line-dateTime">00:00</span>
+                        </li>
+                        <li class="received-line inbox-line">
+                            <span class="line-content">sold out la</span>
+                            <span class="line-dateTime">00:01</span>
+                        </li>
+                    </ul>
+                    <form>
+                        <input class="inbox-input" type="text">
+                        <input class="inbox-send-btn" type="submit" value="send"></input>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        //for easier to  (testing)
+        $("#postForm").submit(function (e) {
+            e.preventDefault();
+
+            const formData = new FormData($(this)[0]);
+            $.ajax({
+                url: "/api/item",
+                data: formData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: (response, status, xhr) => {
+                    console.log(response)
+                    if (xhr.status == 200) {
+                        window.location.href = "/";
+                    } else {
+                        //fail
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script src='/socket.io/socket.io.js'></script>
+    <script>
+        var socket = io('http://localhost:3000', {
+            transport: ['websocket']
+        });
+    </script>
+    <script src="/js/upload_product.js"></script>
+    <script src="/js/inbox.js"></script>
+</body>
+
+</html>

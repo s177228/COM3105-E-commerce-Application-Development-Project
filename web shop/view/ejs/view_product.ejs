@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybersell - PRODUCT_NAME</title>
+    <title>Cybersell - <%= data[0].name %></title>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -16,7 +17,7 @@
         </a>
         <div class="buttons">
             <!-- <button id="cart-btn" class="btn btn-success"><i class='fas fa-shopping-cart'></i> Shopping Cart</button> -->
-            <a href="../../upload_product.html"><button id="sell-btn">Sell</button></a>
+            <a href="../../upload_product"><button id="sell-btn">Sell</button></a>
             <button id="login-btn">Login to resell/buy</button>
             <button id="logout-btn">Logout</button>
         </div>
@@ -147,7 +148,7 @@
         });
     </script>
     <script src="../../js/init_button_product_page.js"></script>
-    <script src="../../js/inbox_product_page.js"></script>
+    <script src="../../js/inbox.js"></script>
 </body>
 
 </html>

@@ -23,6 +23,9 @@ app.use("/", index);
 // use ejs view engine render /product/pid/:pid
 const product = require("./view/product");
 app.use("/product", product);
+// use ejs view engine render /upload_product
+const upload_product = require("./view/upload_product");
+app.use("/upload_product", upload_product);
 
 // router
 // item

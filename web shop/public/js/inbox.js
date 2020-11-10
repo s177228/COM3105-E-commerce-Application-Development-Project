@@ -16,7 +16,7 @@ const loadAllMessages = () => {
         .then(res => { return res.json() })
         .then((res) => {
             // console.log(res[0].productId);
-            // console.log(res);
+            console.log(res);
 
             const messagesResult = res;
 
@@ -44,7 +44,9 @@ const loadAllMessages = () => {
                             chatroomMessage.set("productId", message.productId);
                             chatroomMessage.set("senderId", message.senderId);
                             chatroomMessage.set("sellerId", message.sellerId);
+                            chatroomMessage.set("sellerName", message.sellerName[0].account);
                             chatroomMessage.set("buyerId", message.buyerId);
+                            chatroomMessage.set("buyerName", message.buyerName[0].account);
                             chatroomMessage.set("content", message.content);
                             chatroomMessage.set("dateTime", message.createdAt);
 
@@ -69,10 +71,13 @@ const loadAllMessages = () => {
                             let div = document.createElement("div");
                             let header = document.createElement("header");
                             let opponentId = sellerId;
+                            let opponentName = chatroom.get(0).get("sellerName");
+                            console.log(chatroom.get(0));
                             if (userId == sellerId) {
                                 opponentId = buyerId;
+                                opponentName = chatroom.get(0).get("buyerName");
                             }
-                            let headerText = document.createTextNode("product: " + productId + " | user " + opponentId);
+                            let headerText = document.createTextNode("product: " + productId + " | " + opponentName + " | id: " +opponentId);
                             let ul = document.createElement("ul");
                             let form = document.createElement("form");
                             let input = document.createElement("input");
@@ -165,7 +170,7 @@ const loadAllMessages = () => {
                             //print the room btn
                             let li = document.createElement("li");
                             let span = document.createElement("span");
-                            let spanText = document.createTextNode("product: " + productId + " | user " + opponentId);
+                            let spanText = document.createTextNode("product: " + productId + " | " + opponentName);
                             span.appendChild(spanText);
                             span.classList.add("inbox-title");
                             li.appendChild(span);
