@@ -129,6 +129,7 @@ const hideOrShow = () => {
     const logout_button = document.getElementById("logout-btn");
     const inbox_btn = document.querySelector("#inbox-btn");
     const sell_btn = document.querySelector("#sell-btn");
+    const manage_btn = document.querySelector("#manage-btn");
 
     fetch("/api/account/myAccount")
         .then((res) => {
@@ -137,6 +138,7 @@ const hideOrShow = () => {
         .then((res) => {
             if (res === false) {
                 //not logined
+                manage_btn.parentNode.removeChild(manage_btn);
                 sell_btn.parentNode.removeChild(sell_btn);
                 inbox_btn.parentNode.removeChild(inbox_btn);
                 logout_button.parentNode.removeChild(logout_button);

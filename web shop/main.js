@@ -27,6 +27,9 @@ app.use("/product", product);
 // use ejs view engine render /upload_product
 const upload_product = require("./view/upload_product");
 app.use("/upload_product", upload_product);
+// use ejs view engine render /manage
+const manage = require("./view/manage");
+app.use("/manage", manage);
 
 // router
 // item

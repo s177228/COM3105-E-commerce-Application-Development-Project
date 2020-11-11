@@ -2,27 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <title>Cybersell - <%= data[0].name %></title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Cybersell</title>
 </head>
 
 <body>
-
     <nav>
-        <a href="/">
+        <a href="./">
             <h1 id="logo">Cybersell</h1>
         </a>
         <div class="buttons">
             <!-- <button id="cart-btn" class="btn btn-success"><i class='fas fa-shopping-cart'></i> Shopping Cart</button> -->
-            <a href="../../upload_product"><button id="sell-btn">Sell</button></a>
+            <a href="./upload_product"><button id="sell-btn">Sell</button></a>
             <button id="login-btn">Login to resell/buy</button>
             <button id="logout-btn">Logout</button>
         </div>
     </nav>
+
     <main>
+
         <section id="login-interface" class="login-bg">
             <form id="login_form" action="" class="login-main">
                 <div class="form-section">
@@ -78,40 +79,24 @@
                 </div>
             </form>
         </section>
-        <section id="product-section">
-            <div class="product-cell">
-                <p id="pid" style="display:none;">
-                    <%= data[0].pid%>
-                </p>
-                <p id="sellerId" style="display:none;">
-                    <%= data[0].sellerId%>
-                </p>
-                <p id="sellerName">
-                    <i class='fas fa-user'></i> <%= data[0].sellerName[0].account%>
-                </p>
-                <h3 class="product-name">
-                    <%= data[0].name %>
-                </h3>
-                <div class="product-img">
-                    <img src="/api/image/<%= data[0].img %>"></img>
-                </div>
-                <div class="product-card">
-                    <p class="product-price">
-                        HK$ <%= data[0].price %>
-                    </p>
-                    <br>
-                    <p class="product-desc">
-                        <%= data[0].desc %>
-                    </p>
-                    <br>
-                    <p class="product-detail">
-                        <%= data[0].detail %>
-                    </p>
 
+        <section id="sell-products-section">
+            <% for(var i=0; i<data.length; i++) {%>
+            <div class="sell-product">
+                <div class="sell-product-img">
+                    <img src="/api/image/<%= data[i].img%>" alt="">
                 </div>
-                <input id="init-inbox-btn" type="submit" class="message-btn" value="talk to the seller!">
+                <div class="sell-product-name"><%= data[i].name%></div>
+                <div class="sell-product-price"><%= data[i].price%></div>
+                <div class="sell-product-desc">Desc: <%= data[i].desc%></div>
+                <div class="sell-product-detail">Detail: <%= data[i].detail%></div>
+                <div class="sell-product-status sold">sold</div>
+                <div class="sell-product-status-btn">AVAILABLE</div>
+                <div class="sell-product-delete-btn">DELETE</div>
             </div>
+            <% } %>
         </section>
+
     </main>
     <footer>
         <button id="inbox-btn"><i class="fas fa-comment-alt" style="font-size: 18px;"></i> Inbox</button>
@@ -147,6 +132,7 @@
             </div>
         </div>
     </footer>
+
     <script src='/socket.io/socket.io.js'></script>
     <script>
         var socket = io(window.location.href.split("://")[1].split("/")[0], {
@@ -157,8 +143,9 @@
             socket.emit('message', 'Hello server');
         });
     </script>
-    <script src="../../js/init_button_product_page.js"></script>
-    <script src="../../js/inbox.js"></script>
+    <script src="./js/init_button.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/inbox.js"></script>
 </body>
 
 </html>

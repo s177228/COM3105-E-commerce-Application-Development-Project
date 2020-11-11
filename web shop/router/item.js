@@ -17,11 +17,11 @@ const productsSchema = new mongoose.Schema({
 
 const products = mongoose.model("products", productsSchema);
 
-router.get("/items/manage", (req, res) => {
+router.post("/items/manage", (req, res) => {
   mongoose.connect(process.env.mongoURL);
   products
     .aggregate([
-      { $match: { sellerId: parseInt(req.signedCookies.id) } },
+      { $match: { sellerId: parseInt(req.body.id) } },
       {
         $lookup: {
           from: "accounts",
@@ -60,9 +60,21 @@ router.get("/items/all", function (req, res) {
 // api GET method (get single item) - /api/item/123
 router.route("/item/:pid").get((req, res) => {
     mongoose.connect(process.env.mongoURL);
-    products.find({ pid: parseInt(req.params.pid) }, (err, docs) => {
-        res.send(docs);
-        mongoose.connection.close();
+    products
+    .aggregate([
+      { $match: { pid: parseInt(req.params.pid) } },
+      {
+        $lookup: {
+          from: "accounts",
+          localField: "sellerId",
+          foreignField: "id",
+          as: "sellerName",
+        },
+      },
+    ])
+    .then((docs) => {
+      res.send(docs);
+      mongoose.connection.close();
     });
 });
 
