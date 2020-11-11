@@ -97,7 +97,16 @@ main {
     sans-serif;
 
     section {
-        padding: 3rem 5%;
+        padding: 1rem 5%;
+    }
+
+    .dummy-ad{
+        margin: auto;
+        text-align: center;
+        img{
+            width: 50vw;
+        }
+        
     }
 
     .login-bg {

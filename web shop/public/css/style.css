@@ -114,7 +114,16 @@ main input[type=button] {
 }
 
 main section {
-  padding: 3rem 5%;
+  padding: 1rem 5%;
+}
+
+main .dummy-ad {
+  margin: auto;
+  text-align: center;
+}
+
+main .dummy-ad img {
+  width: 50vw;
 }
 
 main .login-bg {
