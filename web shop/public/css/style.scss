@@ -100,13 +100,14 @@ main {
         padding: 1rem 5%;
     }
 
-    .dummy-ad{
+    .dummy-ad {
         margin: auto;
         text-align: center;
-        img{
+
+        img {
             width: 50vw;
         }
-        
+
     }
 
     .login-bg {
@@ -361,8 +362,7 @@ main {
             flex-direction: row;
             flex-wrap: wrap;
             font-size: 2rem;
-            margin-bottom: 3rem;
-            border: solid gray 1px;
+            margin-bottom: 1em;
 
             * {
                 border: solid gray 1px;
@@ -380,8 +380,8 @@ main {
                 height: 3em;
                 overflow: hidden;
                 position: relative;
-                border-radius: 15px;
                 border: none;
+
                 img {
                     border: none;
                     position: absolute;
@@ -404,7 +404,12 @@ main {
                 background-color: lightcoral;
             }
 
-            .sell-product-status {
+            .sell-product-status,
+            .sell-product-detail,
+            .sell-product-desc,
+            .sell-product-price,
+            .sell-product-name,
+            .sell-product-img {
                 text-align: center;
                 display: flex;
                 align-items: center;
@@ -418,6 +423,10 @@ main {
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
+                .delete-btn{
+                    background-color: rgb(187, 198, 212);
+                    height: 100%;
+                }
             }
 
             .sell-product-status-btn:hover,

@@ -81,20 +81,32 @@
         </section>
 
         <section id="sell-products-section">
-            <% for(var i=0; i<data.length; i++) {%>
-            <div class="sell-product">
-                <div class="sell-product-img">
-                    <img src="/api/image/<%= data[i].img%>" alt="">
-                </div>
-                <div class="sell-product-name"><%= data[i].name%></div>
-                <div class="sell-product-price"><%= data[i].price%></div>
-                <div class="sell-product-desc">Desc: <%= data[i].desc%></div>
-                <div class="sell-product-detail">Detail: <%= data[i].detail%></div>
-                <div class="sell-product-status sold">sold</div>
-                <div class="sell-product-status-btn">AVAILABLE</div>
-                <div class="sell-product-delete-btn">DELETE</div>
-            </div>
-            <% } %>
+            <table>
+                <tr class="sell-product">
+                    <td class="sell-product-img">Image</td>
+                    <td class="sell-product-name">Product</td>
+                    <td class="sell-product-price">Price</td>
+                    <td class="sell-product-desc">Desc</td>
+                    <td class="sell-product-detail">Detail</td>
+                    <td class="sell-product-status">Status</td>
+                    <td class="sell-product-delete-btn">DELETE</td>
+                </tr>
+                <% for(var i=0; i<data.length; i++) {%>
+                <tr class="sell-product">
+                    <td class="sell-product-img">
+                        <img src="/api/image/<%= data[i].img%>" alt="">
+                    </td>
+                    <td class="sell-product-name"><%= data[i].name%></td>
+                    <td class="sell-product-price"><%= data[i].price%></td>
+                    <td class="sell-product-desc"><%= data[i].desc%></td>
+                    <td class="sell-product-detail"><%= data[i].detail%></td>
+                    <td class="sell-product-status <%= data[i].buyerId == null ? "available" : "sold"%>">
+                        <%= data[i].buyerId == null ? "AVAILABLE" : `SOLD Buyer: ${data[i].buyerName[0].account}`%></td>
+                    <td class="sell-product-delete-btn"><button class="delete-btn" id="delete<%= data[i].pid%>"
+                            value='{"name": "<%= data[i].name%>", "id": "<%= data[i].pid%>"}'>DELETE</button></td>
+                </tr>
+                <% } %>
+            </table>
         </section>
 
     </main>
@@ -144,7 +156,7 @@
         });
     </script>
     <script src="./js/init_button.js"></script>
-    <script src="./js/app.js"></script>
+    <script src="./js/manage.js"></script>
     <script src="./js/inbox.js"></script>
 </body>
 

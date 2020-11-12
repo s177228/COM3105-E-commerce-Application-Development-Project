@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
-const productsSchema = new mongoose.Schema({
+const productsSchema = new mongoose.Schema(
+  {
     pid: Number,
     sellerId: Number,
     name: String,
@@ -11,9 +12,11 @@ const productsSchema = new mongoose.Schema({
     desc: String,
     detail: String,
     buyerId: Number,
-}, {
+  },
+  {
     timestamps: true,
-});
+  }
+);
 
 const products = mongoose.model("products", productsSchema);
 
@@ -59,8 +62,8 @@ router.get("/items/all", function (req, res) {
 
 // api GET method (get single item) - /api/item/123
 router.route("/item/:pid").get((req, res) => {
-    mongoose.connect(process.env.mongoURL);
-    products
+  mongoose.connect(process.env.mongoURL);
+  products
     .aggregate([
       { $match: { pid: parseInt(req.params.pid) } },
       {
@@ -78,13 +81,25 @@ router.route("/item/:pid").get((req, res) => {
     });
 });
 
+// api GET method delete (delete single item) - /api/item/delete/123
+router.route("/item/delete/:pid").get((req, res) => {
+  mongoose.connect(process.env.mongoURL);
+  products.find({ pid: parseInt(req.params.pid) }).remove((err) => {
+    if (err) {
+      res.status(201).send();
+      throw err;
+    }
+    res.status(200).send();
+  });
+});
+
 // api POST method (post single item) - /api/item/
 const post_item = require("./post_item");
 router.use("/item", post_item);
 
 // api GET method (get item's image) - /api/image/123.jpg
 router.get("/image/:img", (req, res) => {
-    res.sendFile(__dirname + `/data/image/${req.params.img}`);
+  res.sendFile(__dirname + `/data/image/${req.params.img}`);
 });
 
 module.exports = router;

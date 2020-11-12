@@ -3,14 +3,14 @@ const router = express.Router();
 const multer = require("multer");
 const fs = require("fs");
 const mongoose = require("mongoose");
-var mkdirp = require('mkdirp');
+var mkdirp = require("mkdirp");
 
 const products = mongoose.model("products");
 
-var dir = './router/data/image/';
+var dir = "./router/data/image/";
 
-if (!fs.existsSync(dir)){
-    mkdirp(dir);
+if (!fs.existsSync(dir)) {
+  mkdirp(dir);
 }
 
 var upload_error = false;
@@ -58,21 +58,22 @@ router.post("/", upload.single("fileToUpload"), (req, res) => {
     ) {
       res.status(201).send({ msg: "some slot are empty!" });
     } else {
-      products.findOne({}).sort('-pid').exec((err, docs) => {
-        if (err) {
+      products
+        .findOne({})
+        .sort("-pid")
+        .exec((err, docs) => {
+          if (err) {
             res.status(201).send({ msg: "id incurement error" });
-        } else {
+          } else {
             if (docs != null) {
-                id = docs.pid + 1;
-            } else{
+              id = docs.pid + 1;
+            } else {
               id = 1;
             }
 
             fs.rename(
               `./router/data/image/${req.file.filename}`,
-              `./router/data/image/POST${id}-${
-                req.file.filename
-              }`,
+              `./router/data/image/POST${id}-${req.file.filename}`,
               (err) => console.log(err)
             );
 
@@ -87,14 +88,13 @@ router.post("/", upload.single("fileToUpload"), (req, res) => {
                 detail: req.body.detail,
                 buyerId: null,
               },
-              () => {
+              (err) => {
+                err ? console.log(err) : null;
                 res.status(200).send({ msg: "posted!" });
               }
             );
-        }
-    });
-
-      
+          }
+        });
     }
   }
 });

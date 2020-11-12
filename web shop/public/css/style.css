@@ -457,8 +457,7 @@ main #sell-products-section .sell-product {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   font-size: 2rem;
-  margin-bottom: 3rem;
-  border: solid gray 1px;
+  margin-bottom: 1em;
 }
 
 main #sell-products-section .sell-product * {
@@ -481,7 +480,6 @@ main #sell-products-section .sell-product .sell-product-img {
   height: 3em;
   overflow: hidden;
   position: relative;
-  border-radius: 15px;
   border: none;
 }
 
@@ -506,7 +504,12 @@ main #sell-products-section .sell-product .sold {
   background-color: lightcoral;
 }
 
-main #sell-products-section .sell-product .sell-product-status {
+main #sell-products-section .sell-product .sell-product-status,
+main #sell-products-section .sell-product .sell-product-detail,
+main #sell-products-section .sell-product .sell-product-desc,
+main #sell-products-section .sell-product .sell-product-price,
+main #sell-products-section .sell-product .sell-product-name,
+main #sell-products-section .sell-product .sell-product-img {
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -532,6 +535,12 @@ main #sell-products-section .sell-product .sell-product-delete-btn {
       -ms-flex-pack: center;
           justify-content: center;
   cursor: pointer;
+}
+
+main #sell-products-section .sell-product .sell-product-status-btn .delete-btn,
+main #sell-products-section .sell-product .sell-product-delete-btn .delete-btn {
+  background-color: #bbc6d4;
+  height: 100%;
 }
 
 main #sell-products-section .sell-product .sell-product-status-btn:hover,
