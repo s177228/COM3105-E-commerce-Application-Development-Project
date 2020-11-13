@@ -86,18 +86,21 @@
                 <p id="sellerId" style="display:none;">
                     <%= data[0].sellerId%>
                 </p>
-                <p id="sellerName">
-                    <i class='fas fa-user'></i> <%= data[0].sellerName[0].account%>
-                </p>
-                <h3 class="product-name">
-                    <%= data[0].name %>
-                </h3>
                 <div class="product-img">
                     <img src="/api/image/<%= data[0].img %>"></img>
                 </div>
                 <div class="product-card">
+                    <p id="sellerName">
+                        <i class='fas fa-user'></i> <%= data[0].sellerName[0].account%>
+
+                        <input id="init-inbox-btn" type="submit" class="message-btn" value="talk to the seller">
+                    </p>
                     <p class="product-price">
                         HK$ <%= data[0].price %>
+                    </p>
+                    <hr>
+                    <p class="product-name">
+                        <%= data[0].name %>
                     </p>
                     <br>
                     <p class="product-desc">
@@ -109,7 +112,6 @@
                     </p>
 
                 </div>
-                <input id="init-inbox-btn" type="submit" class="message-btn" value="talk to the seller!">
             </div>
         </section>
     </main>

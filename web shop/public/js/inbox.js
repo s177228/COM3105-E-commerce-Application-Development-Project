@@ -3,7 +3,9 @@ window.addEventListener("DOMContentLoaded", (evt) => {
     loadAllMessages();
   }, 100);
   socket.on("refresh", () => {
-    loadAllMessages();
+    setTimeout(() => {
+      loadAllMessages();
+    }, 100);
     console.log("refresh");
   });
 });
@@ -55,6 +57,7 @@ const loadAllMessages = () => {
               chatroomMessage.set("buyerName", message.buyerName[0].account);
               chatroomMessage.set("content", message.content);
               chatroomMessage.set("dateTime", message.createdAt);
+              chatroomMessage.set("isItemSold", message.productName[0].buyerId != null);
 
               chatroomMessages.set(chatroomMessages.size, chatroomMessage);
             });
@@ -70,6 +73,7 @@ const loadAllMessages = () => {
               const senderId = chatroom.get(0).get("senderId");
               const sellerId = chatroom.get(0).get("sellerId");
               const buyerId = chatroom.get(0).get("buyerId");
+              const isItemSold = chatroom.get(0).get("isItemSold");
 
               // print the message inside room
               let div = document.createElement("div");
@@ -82,9 +86,40 @@ const loadAllMessages = () => {
                 opponentId = buyerId;
                 opponentName = chatroom.get(0).get("buyerName");
               }
-              let headerText = document.createTextNode(
-                `Product: ${productName} | Chat: ${opponentName} | (dev: pid: ${productId} | id: ${opponentId})`
-              );
+
+              let headerText = document.createElement("headerText");
+              let headerTextRaw = `Product: ${productName} | Chat: ${opponentName}`;
+              //check if the product is the owner
+              if(sellerId == userId){
+                headerTextRaw = ` *Product Owner* ${headerTextRaw}` ;
+              }
+              if(isItemSold == true){
+                headerTextRaw += ` [SOLD]`;
+              }else{
+                headerTextRaw += ` [available]`;
+              }
+              headerText.appendChild(document.createTextNode(headerTextRaw));
+              if(isItemSold == false && sellerId == userId){
+                let sell_btn = document.createElement("button");
+                sell_btn.innerHTML = "sell to this buyer";
+                sell_btn.addEventListener("click", ()=>{
+                  fetch("/api/item/setBuyer", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                      productId: productId,
+                      buyerId: buyerId,
+                    }),
+                  }).then(() => {
+                    socket.emit("sent", "sent");
+                  });
+                });
+                headerText.appendChild(sell_btn);
+              }
+              
+              
 
               let ul = document.createElement("ul");
               let form = document.createElement("form");

@@ -273,23 +273,7 @@ main {
             justify-content: space-around;
             border-radius: 15px;
 
-            .product-name {
-                padding: 1rem;
-                width: 100%;
-                background-color: cadetblue;
-                border-radius: 15px;
-            }
 
-            .product-price {
-                background-color: rgb(187, 146, 86);
-                border-radius: 15px;
-                padding: 5px;
-            }
-
-            #sellerName {
-                margin-right: auto;
-                padding-left: 1em;
-            }
 
             .product-img {
                 width: 37rem;
@@ -315,19 +299,39 @@ main {
 
             .product-card {
                 margin: 2.5rem;
-                padding: 1rem;
                 text-align: left;
                 flex-grow: 1;
 
                 * {
                     margin-bottom: 0.5rem;
                 }
+
+                .product-name {
+                    font-weight: 900;
+                }
+
+                .product-price {
+                    color: crimson;
+                    font-weight: 900;
+                    border-radius: 15px;
+                    padding: 5px;
+                }
+
+                #sellerName {
+                    margin-right: auto;
+                    padding-left: 1em;
+                }
+
+                .product-desc,
+                .product-detail {
+                    font-size: 2vh;
+                }
             }
 
             .message-btn {
-                width: 100%;
                 font-size: 3rem;
                 border-radius: 15px;
+                margin-left: 5em;
             }
         }
     }
@@ -423,7 +427,8 @@ main {
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
-                .delete-btn{
+
+                .delete-btn {
                     background-color: rgb(187, 198, 212);
                     height: 100%;
                 }

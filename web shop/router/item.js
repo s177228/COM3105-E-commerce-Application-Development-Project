@@ -87,9 +87,20 @@ router.route("/item/delete/:pid").get((req, res) => {
   products.find({ pid: parseInt(req.params.pid) }).remove((err) => {
     if (err) {
       res.status(201).send();
+      mongoose.connection.close();
       throw err;
     }
     res.status(200).send();
+    mongoose.connection.close();
+  });
+});
+
+// api POST method for set the buyerId in product - /api/item/setBuyer
+router.post("/item/setBuyer", (req, res) => {
+  mongoose.connect(process.env.mongoURL);
+  products.findOneAndUpdate({pid: parseInt(req.body.productId)}, {buyerId: parseInt(req.body.buyerId)}).then(()=>{
+    res.status(200).send();
+    mongoose.connection.close();
   });
 });
 
