@@ -30,6 +30,9 @@ app.use("/upload_product", upload_product);
 // use ejs view engine render /manage
 const manage = require("./view/manage");
 app.use("/manage", manage);
+// use ejs view engine render /donate
+const donate = require("./view/donate");
+app.use("/donate", donate);
 
 // router
 // item
